@@ -1,21 +1,27 @@
 import { Box } from "@react-three/drei";
 import { useMemo, useState } from "react";
 import * as THREE from "three";
-import { generateCubeGrid } from "../utils/CubeGrid";
+import {
+  generateCubeGrid,
+  generateCubePositions,
+  shouldFill,
+} from "../utils/CubeGrid";
+import { generateLatinSquare, populateCubeGrid } from "../utils/LatinSquare";
 
-const Cube = () => {
+interface ICube {
+  size: number;
+}
+
+const Cube = ({ size }: ICube) => {
   const [showCube, setShowCube] = useState(true);
 
-  const grid = generateCubeGrid(3);
-
-  for (let x = 0; x < 3; ++x) {
-    grid[x][0][0] = false;
-  }
+  const grid = generateCubeGrid(size);
+  populateCubeGrid(grid, generateLatinSquare(size));
 
   const showMaterial = useMemo(
     () =>
       new THREE.MeshPhongMaterial({
-        color: "yellow",
+        color: "red",
         flatShading: true,
       }),
     []
@@ -29,29 +35,22 @@ const Cube = () => {
     []
   );
 
-  const positionX = [-1, 0, 1];
-  const positionY = [-1, 0, 1];
-  const positionZ = [-1, 0, 1];
-
-  return positionX.map((x) =>
-    positionY.map((y) =>
-      positionZ.map((z) => {
-        return (
-          grid[x + 1][y + 1][z + 1] && (
-            <Box
-              key={`${x},${y},${z}`}
-              args={[0.7, 0.7, 0.7]}
-              position={[x, y, z]}
-              material={showCube ? showMaterial : hideMaterial}
-              onPointerDown={() => setShowCube((prev) => !prev)}
-              castShadow
-              receiveShadow
-            />
-          )
-        );
-      })
-    )
-  );
+  return generateCubePositions(size).map((pos) => {
+    const { x, y, z } = pos;
+    return (
+      shouldFill(pos, grid) && (
+        <Box
+          key={`${x},${y},${z}`}
+          args={[0.9, 0.9, 0.9]}
+          position={[x, y, z]}
+          material={showCube ? showMaterial : hideMaterial}
+          onPointerDown={() => setShowCube((prev) => !prev)}
+          castShadow
+          receiveShadow
+        />
+      )
+    );
+  });
 };
 
 export default Cube;

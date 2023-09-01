@@ -6,15 +6,15 @@ import Lights from "./components/Lights";
 import Screens from "./components/Screens";
 
 const App = () => {
+  const scale = 5;
   return (
-    <Canvas camera={{ position: [6, 6, 6] }} shadows>
-      <Lights distance={6} />
-      <Cube />
-      <Screens scale={6} />
+    <Canvas camera={{ position: [scale * 2, scale * 2, scale * 2] }} shadows>
+      <Lights distance={scale * 2} />
+      <Cube size={scale} />
+      <Screens scale={scale * 2} />
       <Stats />
       <OrbitControls target={[0, 0, 0]} />
-      <axesHelper args={[3]} />
-      <gridHelper />
+      <axesHelper args={[scale]} />
     </Canvas>
   );
 };
