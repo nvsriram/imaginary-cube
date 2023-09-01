@@ -1,35 +1,22 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { OrbitControls, Stats } from "@react-three/drei";
+import { Canvas } from "@react-three/fiber";
+import "./App.css";
+import Cube from "./components/Cube";
+import Lights from "./components/Lights";
+import Screens from "./components/Screens";
 
-function App() {
-  const [count, setCount] = useState(0)
-
+const App = () => {
   return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
-}
+    <Canvas camera={{ position: [6, 6, 6] }} shadows>
+      <Lights distance={6} />
+      <Cube />
+      <Screens scale={6} />
+      <Stats />
+      <OrbitControls target={[0, 0, 0]} />
+      <axesHelper args={[3]} />
+      <gridHelper />
+    </Canvas>
+  );
+};
 
-export default App
+export default App;
