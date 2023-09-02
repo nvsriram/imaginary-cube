@@ -1,4 +1,4 @@
-import { Box } from "@react-three/drei";
+import { Box, useCursor } from "@react-three/drei";
 import { useEffect, useMemo, useState } from "react";
 import * as THREE from "three";
 import { shouldFill } from "../utils/CubeGrid";
@@ -11,42 +11,52 @@ import { populateCubeGrid } from "../utils/LatinSquare";
 import CubeText from "./CubeText";
 
 interface ICube {
+  initialScale: number;
   size: number;
-  fractal: number;
+  iterations: number;
+  color: string;
+  showText: boolean;
 }
 
-const Cube = ({ size, fractal }: ICube) => {
+const Cube = ({ initialScale, size, iterations, color, showText }: ICube) => {
+  const [hovered, setHovered] = useState(false);
   const [showCube, setShowCube] = useState(true);
   const [cubePositions, setCubePositions] = useState<THREE.Vector3[]>([]);
 
+  useCursor(hovered, "pointer");
+
   useEffect(() => {
-    const grid = generateFractalCubeGrid(size, fractal);
-    const lsquare = generateFractalLatinSquare(size, fractal);
+    const grid = generateFractalCubeGrid(size, iterations);
+    const lsquare = generateFractalLatinSquare(size, iterations);
     populateCubeGrid(grid, lsquare);
 
-    const positions = generateFractalCubePositions(size, fractal);
+    const positions = generateFractalCubePositions(size, iterations);
     const shownPositions = positions.filter((pos) => shouldFill(pos, grid));
     setCubePositions(shownPositions);
-  }, [fractal, size]);
+  }, [iterations, size]);
 
-  const scale = useMemo(() => 1 / Math.pow(size, fractal), [size, fractal]);
+  const scale = useMemo(
+    () => size / Math.pow(size, Math.pow(2, iterations)),
+    [size, iterations]
+  );
+
   const showMaterial = useMemo(
     () =>
       new THREE.MeshStandardMaterial({
-        color: "cyan",
+        color: color,
         flatShading: true,
       }),
-    []
+    [color]
   );
   const hideMaterial = useMemo(
     () =>
       new THREE.MeshStandardMaterial({
-        color: "cyan",
+        color: color,
         flatShading: true,
         opacity: 0.4,
         transparent: true,
       }),
-    []
+    [color]
   );
 
   return cubePositions.map((pos) => {
@@ -54,14 +64,20 @@ const Cube = ({ size, fractal }: ICube) => {
     return (
       <Box
         key={`${x},${y},${z}`}
-        args={[0.9 * scale, 0.9 * scale, 0.9 * scale]}
+        args={[
+          initialScale * scale,
+          initialScale * scale,
+          initialScale * scale,
+        ]}
         position={[x * scale, y * scale, z * scale]}
         material={showCube ? showMaterial : hideMaterial}
+        onPointerEnter={() => setHovered(true)}
+        onPointerLeave={() => setHovered(false)}
         onPointerDown={() => setShowCube((prev) => !prev)}
         castShadow
         receiveShadow
       >
-        <CubeText size={size} fractal={fractal} pos={pos} />
+        {showText && <CubeText size={size} fractal={iterations} pos={pos} />}
       </Box>
     );
   });

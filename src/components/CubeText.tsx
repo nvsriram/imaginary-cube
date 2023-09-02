@@ -8,9 +8,9 @@ interface ICubeText {
 }
 
 const CubeText = ({ size, fractal, pos }: ICubeText) => {
-  const newSize = Math.pow(size, fractal + 1);
+  const newSize = Math.pow(size, Math.pow(2, fractal));
+  const scale = size / newSize;
   const half = (newSize - 1) / 2;
-  const scale = 1 / Math.pow(size, fractal);
   return (
     <>
       <Text font="monospace" fontSize={0.5 * scale} position-z={0.5 * scale}>

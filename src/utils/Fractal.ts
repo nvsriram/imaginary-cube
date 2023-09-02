@@ -7,7 +7,7 @@ const generateFractalLatinSquare = (size: number, iteration = 0) => {
   while (iteration--) {
     prev = lsquare;
     const size = prev.length;
-    const newSize = size * size;
+    const newSize = Math.pow(size, 2);
     lsquare = generateLatinSquare(newSize, true);
     for (let i = 0; i < size; ++i) {
       for (let j = 0; j < size; ++j) {
@@ -25,11 +25,11 @@ const generateFractalLatinSquare = (size: number, iteration = 0) => {
 };
 
 const generateFractalCubeGrid = (size: number, iteration = 0) => {
-  return generateCubeGrid(Math.pow(size, iteration + 1));
+  return generateCubeGrid(Math.pow(size, Math.pow(2, iteration)));
 };
 
 const generateFractalCubePositions = (size: number, iteration = 0) => {
-  return generateCubePositions(Math.pow(size, iteration + 1));
+  return generateCubePositions(Math.pow(size, Math.pow(2, iteration)));
 };
 
 export {
