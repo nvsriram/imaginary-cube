@@ -1,7 +1,11 @@
-const generateLatinSquare = (size = 3) => {
+const generateLatinSquare = (size = 3, empty = false) => {
   const lsquare: number[][] = new Array(size)
     .fill(null)
     .map(() => new Array(size).fill(-1));
+
+  if (empty) {
+    return lsquare;
+  }
 
   for (let i = 0; i < size; ++i) {
     for (let j = 0; j < size; ++j) {
