@@ -1,5 +1,7 @@
+import { CubeGrid, LatinSquare } from "../components/types";
+
 const generateLatinSquare = (size = 3, empty = false) => {
-  const lsquare: number[][] = new Array(size)
+  const lsquare: LatinSquare = new Array(size)
     .fill(null)
     .map(() => new Array(size).fill(-1));
 
@@ -16,7 +18,7 @@ const generateLatinSquare = (size = 3, empty = false) => {
   return lsquare;
 };
 
-const populateCubeGrid = (grid: boolean[][][], lsquare: number[][]) => {
+const populateCubeGrid = (grid: CubeGrid, lsquare: LatinSquare) => {
   const size = lsquare.length;
   for (let i = 0; i < size; ++i) {
     for (let j = 0; j < size; ++j) {

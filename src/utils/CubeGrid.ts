@@ -1,6 +1,7 @@
 import { Vector3 } from "three";
+import { CubeGrid, CubePositions } from "../components/types";
 
-const shouldFill = (pos: Vector3, grid: boolean[][][]) => {
+const shouldFill = (pos: Vector3, grid: CubeGrid) => {
   const size = grid.length;
   const half = (size - 1) / 2;
 
@@ -20,7 +21,7 @@ const shouldFill = (pos: Vector3, grid: boolean[][][]) => {
 };
 
 const generateCubeGrid = (size = 3) => {
-  const cubeGrid: boolean[][][] = [];
+  const cubeGrid: CubeGrid = [];
 
   for (let x = 0; x < size; ++x) {
     cubeGrid[x] = [];
@@ -36,7 +37,7 @@ const generateCubeGrid = (size = 3) => {
 };
 
 const generateCubePositions = (size = 3) => {
-  const positions: Vector3[] = [];
+  const positions: CubePositions = [];
   const half = (size - 1) / 2;
 
   for (let x = -half; x <= half; ++x) {
