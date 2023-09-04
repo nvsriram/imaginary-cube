@@ -1,4 +1,4 @@
-import { CubeGrid, LatinSquare } from "../components/types";
+import { CubeGrid, LatinSquare } from "../types";
 
 const generateLatinSquare = (size = 3, empty = false) => {
   const lsquare: LatinSquare = new Array(size)

@@ -1,13 +1,17 @@
-import { OrbitControls, Stats } from "@react-three/drei";
+import { CameraControls, Loader, Stats } from "@react-three/drei";
 import { Canvas } from "@react-three/fiber";
-import { useControls } from "leva";
+import { button, useControls } from "leva";
+import { useRef, useState } from "react";
 import "./App.css";
 import FractalCube from "./components/FractalCube";
 import Lights from "./components/Lights";
 import Screens from "./components/Screens";
-import { ShapeOptions } from "./components/types";
+import { ShapeOptions } from "./types";
 
 const App = () => {
+  const [reset, setReset] = useState(false);
+  const cameraControlRef = useRef<CameraControls>(null);
+
   const {
     shape,
     scale,
@@ -51,17 +55,27 @@ const App = () => {
       step: 0.1,
     },
     showText: {
+      label: "show text",
       value: true,
     },
     showAxes: {
+      label: "show axes",
       value: false,
     },
     showGrid: {
+      label: "show grid",
       value: false,
     },
     showStats: {
+      label: "show stats",
       value: true,
     },
+    ["reset rotation"]: button(() => {
+      setReset(true);
+      if (cameraControlRef && cameraControlRef.current) {
+        cameraControlRef.current.reset(true);
+      }
+    }),
   });
 
   return (
@@ -76,13 +90,16 @@ const App = () => {
           color={color}
           opacity={opacity}
           showText={showText}
+          reset={reset}
+          setReset={setReset}
         />
         <Screens scale={dimension * 2} />
         {showStats && <Stats />}
-        <OrbitControls target={[0, 0, 0]} />
+        <CameraControls ref={cameraControlRef} />
         <axesHelper args={[dimension]} visible={showAxes} />
         <gridHelper visible={showGrid} />
       </Canvas>
+      <Loader />
     </>
   );
 };
