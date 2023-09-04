@@ -13,13 +13,13 @@ const CubeText = ({ size, fractal, pos }: ICubeText) => {
   const half = (newSize - 1) / 2;
   return (
     <>
-      <Text font="monospace" fontSize={0.5 * scale} position-z={0.5 * scale}>
+      <Text font="monospace" fontSize={0.5 * scale} position-z={0.501 * scale}>
         {newSize - (pos.z + half)}
       </Text>
       <Text
         font="monospace"
         fontSize={0.5 * scale}
-        position-z={-0.5 * scale}
+        position-z={-0.501 * scale}
         rotation={[Math.PI, 0, Math.PI]}
       >
         {pos.z + half + 1}
@@ -27,7 +27,7 @@ const CubeText = ({ size, fractal, pos }: ICubeText) => {
       <Text
         font="monospace"
         fontSize={0.5 * scale}
-        position-x={0.5 * scale}
+        position-x={0.501 * scale}
         rotation={[0, Math.PI / 2, 0]}
       >
         {newSize - (pos.x + half)}
@@ -35,7 +35,7 @@ const CubeText = ({ size, fractal, pos }: ICubeText) => {
       <Text
         font="monospace"
         fontSize={0.5 * scale}
-        position-x={-0.5 * scale}
+        position-x={-0.501 * scale}
         rotation={[0, -Math.PI / 2, 0]}
       >
         {pos.x + half + 1}
@@ -43,7 +43,7 @@ const CubeText = ({ size, fractal, pos }: ICubeText) => {
       <Text
         font="monospace"
         fontSize={0.5 * scale}
-        position-y={0.5 * scale}
+        position-y={0.501 * scale}
         rotation={[-Math.PI / 2, 0, 0]}
       >
         {newSize - (pos.y + half)}
@@ -51,7 +51,7 @@ const CubeText = ({ size, fractal, pos }: ICubeText) => {
       <Text
         font="monospace"
         fontSize={0.5 * scale}
-        position-y={-0.5 * scale}
+        position-y={-0.501 * scale}
         rotation={[Math.PI / 2, 0, 0]}
       >
         {pos.y + half + 1}
