@@ -1,16 +1,7 @@
 import { Box } from "@react-three/drei";
 import { useMemo } from "react";
-import * as THREE from "three";
+import { IShape } from "../types";
 import CubeText from "./CubeText";
-
-interface ICube {
-  pos: THREE.Vector3;
-  initialScale: number;
-  size: number;
-  iterations: number;
-  material: THREE.Material;
-  showText: boolean;
-}
 
 const Cube = ({
   pos,
@@ -19,7 +10,8 @@ const Cube = ({
   iterations,
   material,
   showText,
-}: ICube) => {
+  opacity,
+}: IShape) => {
   const scale = useMemo(
     () => size / Math.pow(size, Math.pow(2, iterations)),
     [size, iterations]
@@ -35,7 +27,14 @@ const Cube = ({
       castShadow
       receiveShadow
     >
-      {showText && <CubeText size={size} fractal={iterations} pos={pos} />}
+      {showText && (
+        <CubeText
+          size={size}
+          fractal={iterations}
+          pos={pos}
+          opacity={opacity}
+        />
+      )}
     </Box>
   );
 };
