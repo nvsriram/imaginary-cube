@@ -1,4 +1,8 @@
+import { FC } from "react";
 import { Vector3 } from "three";
+import Cube from "../components/Cube";
+import Tetrahedron from "../components/Tetrahedron";
+import Octahedron from "../components/Octahedron";
 
 export type CubeGrid = boolean[][][];
 export type CubePositions = Vector3[];
@@ -14,9 +18,14 @@ export interface IShape {
   opacity: number;
 }
 
-export enum ShapeOption {
-  CUBE = "Cube",
-  TETRAHEDRON = "Tetrahedron",
-}
+export const ShapeMap = new Map<string, FC<IShape>>([
+  ["Cube", Cube],
+  ["Cuboctahedron", Cube],
+  ["Hexagonal Bipyramid", Cube],
+  ["Tetrahedron", Tetrahedron],
+  ["Triangular Antiprism", Octahedron],
+  ["Triangular Antiprismoid", Cube],
+  ["Quadric Antiprisoid", Cube],
+]);
 
-export const ShapeOptions = Object.values(ShapeOption);
+export const ShapeMapKeys = Array.from(ShapeMap.keys());

@@ -32,6 +32,7 @@ const Tetrahedron = ({
           size={size}
           fractal={iterations}
           pos={pos}
+          initialScale={initialScale}
           opacity={opacity}
         />
       )}

@@ -5,12 +5,13 @@ interface ICubeText {
   size: number;
   fractal: number;
   pos: Vector3;
+  initialScale: number;
   opacity: number;
 }
 
-const CubeText = ({ size, fractal, pos, opacity }: ICubeText) => {
+const CubeText = ({ size, fractal, pos, initialScale, opacity }: ICubeText) => {
   const newSize = Math.pow(size, Math.pow(2, fractal));
-  const scale = size / newSize;
+  const scale = (size / newSize) * initialScale;
   const half = (newSize - 1) / 2;
   return (
     <>

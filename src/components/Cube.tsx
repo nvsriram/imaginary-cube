@@ -32,6 +32,7 @@ const Cube = ({
           size={size}
           fractal={iterations}
           pos={pos}
+          initialScale={initialScale}
           opacity={opacity}
         />
       )}

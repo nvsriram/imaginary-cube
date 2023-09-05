@@ -9,7 +9,7 @@ import {
   useState,
 } from "react";
 import * as THREE from "three";
-import { ShapeOption } from "../types";
+import { ShapeMap } from "../types";
 import {
   generateFractalCubeGrid,
   generateFractalCubePositions,
@@ -17,11 +17,9 @@ import {
   populateCubeGrid,
   shouldFill,
 } from "../utils";
-import Cube from "./Cube";
-import Tetrahedron from "./Tetrahedron";
 
 interface IFractalCube {
-  shape: ShapeOption;
+  shape: string;
   initialScale: number;
   size: number;
   iterations: number;
@@ -105,18 +103,10 @@ const FractalCube = ({
     setCubePositions(shownPositions);
   }, [iterations, size]);
 
-  let Shape = Cube;
-  switch (shape) {
-    case ShapeOption.CUBE: {
-      Shape = Cube;
-      break;
-    }
-    case ShapeOption.TETRAHEDRON: {
-      Shape = Tetrahedron;
-      break;
-    }
-    default:
-      Shape = Cube;
+  // handle shape
+  const Shape = ShapeMap.get(shape);
+  if (!Shape) {
+    return null;
   }
 
   return (
