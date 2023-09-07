@@ -6,7 +6,7 @@ import "./App.css";
 import FractalCube from "./components/FractalCube";
 import Lights from "./components/Lights";
 import Screens from "./components/Screens";
-import { BetaShapeMapKeys, DefaultShapeMapKeys, ShapeMapKeys } from "./types";
+import { BetaShapeMapKeys, DefaultShapeMapKeys } from "./types";
 import { parseShapeKey } from "./utils";
 
 const App = () => {
@@ -64,27 +64,36 @@ const App = () => {
         step: 0.1,
       },
       showText: {
-        label: "show text",
+        label: (
+          <span title="shows axis elevation based on latin square">
+            show text
+          </span>
+        ),
         value: true,
+        disabled: betaMode,
       },
       showAxes: {
-        label: "show axes",
+        label: <span title="shows xyz axes">show axes</span>,
         value: false,
       },
       showGrid: {
-        label: "show grid",
+        label: <span title="shows xy plane grid">show grid</span>,
         value: false,
       },
       showStats: {
-        label: "show stats",
+        label: <span title="shows stats on top left">show stats</span>,
         value: true,
       },
       betaMode: {
-        label: "[β] mode",
+        label: (
+          <span title="shows experimental shapes">
+            [β] mode <sup>*</sup>
+          </span>
+        ),
         value: betaMode,
         onChange: (value) => setBetaMode(value),
       },
-      ["reset rotation"]: button(() => {
+      ["reset scene"]: button(() => {
         setReset(true);
         if (cameraControlRef && cameraControlRef.current) {
           cameraControlRef.current.reset(true);

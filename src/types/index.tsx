@@ -1,9 +1,10 @@
 import { FC } from "react";
 import { Vector3 } from "three";
 import Cube from "../components/Cube";
-import Tetrahedron from "../components/Tetrahedron";
+import Cuboctahedron from "../components/Cuboctahedron";
+import HexagonalBipyramid from "../components/HexagonalBipyramid";
 import Octahedron from "../components/Octahedron";
-import Dodecahedron from "../components/Dodecahedron";
+import Tetrahedron from "../components/Tetrahedron";
 
 export type CubeGrid = boolean[][][];
 export type CubePositions = Vector3[];
@@ -22,12 +23,12 @@ export interface IShape {
 export const ShapeMap = new Map<string, FC<IShape>>([
   ["Cube", Cube],
   ["Tetrahedron", Tetrahedron],
-  ["Cuboctahedron", Cube],
-  ["Hexagonal Bipyramid", Dodecahedron],
-  ["Triangular Antiprism", Octahedron],
-  ["Triangular Antiprismoid", Cube],
-  ["Quadric Antiprisoid", Cube],
+  ["Cuboctahedron", Cuboctahedron],
+  ["Hexagonal Bipyramid", HexagonalBipyramid],
+  ["Octahedron", Octahedron],
 ]);
+
+export const BETA_SUFFIX = " *";
 
 const ShapeMapKeys = Array.from(ShapeMap.keys());
 export const DefaultShapeMapKeys = ShapeMapKeys.filter((key) =>
@@ -35,4 +36,4 @@ export const DefaultShapeMapKeys = ShapeMapKeys.filter((key) =>
 );
 export const BetaShapeMapKeys = ShapeMapKeys.filter(
   (key) => !["Cube", "Tetrahedron"].includes(key)
-).map((key) => key + " [β]");
+).map((key) => key + BETA_SUFFIX);
