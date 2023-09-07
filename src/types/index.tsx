@@ -18,6 +18,7 @@ export interface IShape {
   material: THREE.Material;
   showText: boolean;
   opacity: number;
+  showEdges: boolean;
 }
 
 export const ShapeMap = new Map<string, FC<IShape>>([

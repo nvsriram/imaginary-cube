@@ -23,6 +23,7 @@ const App = () => {
       color,
       opacity,
       showText,
+      showEdges,
       showAxes,
       showGrid,
       showStats,
@@ -72,6 +73,12 @@ const App = () => {
         value: true,
         disabled: betaMode,
       },
+      showEdges: {
+        label: (
+          <span title="displays edge lines on top of shape">show edges</span>
+        ),
+        value: true,
+      },
       showAxes: {
         label: <span title="shows xyz axes">show axes</span>,
         value: false,
@@ -115,6 +122,7 @@ const App = () => {
           color={color}
           opacity={opacity}
           showText={showText}
+          showEdges={showEdges}
           reset={reset}
           setReset={setReset}
         />
