@@ -26,6 +26,7 @@ interface IFractalCube {
   color: string;
   opacity: number;
   showText: boolean;
+  showEdges: boolean;
   reset: boolean;
   setReset: Dispatch<SetStateAction<boolean>>;
 }
@@ -38,6 +39,7 @@ const FractalCube = ({
   color,
   opacity,
   showText,
+  showEdges,
   reset,
   setReset,
 }: IFractalCube) => {
@@ -124,8 +126,9 @@ const FractalCube = ({
           size={size}
           iterations={iterations}
           material={material}
-          showText={showText}
           opacity={opacity}
+          showText={showText}
+          showEdges={showEdges}
         />
       ))}
     </group>
