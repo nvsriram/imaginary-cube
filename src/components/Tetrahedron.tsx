@@ -1,4 +1,4 @@
-import { Edges, Tetrahedron as TetrahedronPrimitive } from "@react-three/drei";
+import { Edges, Tetrahedron as TetrahedronDrei } from "@react-three/drei";
 import { useMemo } from "react";
 import { IShape } from "../types";
 import CubeText from "./CubeText";
@@ -21,7 +21,7 @@ const Tetrahedron = ({
   const { x, y, z } = pos;
 
   return (
-    <TetrahedronPrimitive
+    <TetrahedronDrei
       args={[initialScale * scale, 0]}
       position={[x * scale, y * scale, z * scale]}
       material={material}
@@ -43,7 +43,7 @@ const Tetrahedron = ({
         material={material}
         visible={showEdges}
       />
-    </TetrahedronPrimitive>
+    </TetrahedronDrei>
   );
 };
 

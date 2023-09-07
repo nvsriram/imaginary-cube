@@ -16,7 +16,7 @@ const HexagonalBipyramid = ({
     [size, iterations]
   );
 
-  const { rotation } = useControls("Hexagonal Bipyramid", {
+  const { rotation } = useControls("hexagonal bipyramid", {
     rotation: {
       x: 0,
       y: 0,

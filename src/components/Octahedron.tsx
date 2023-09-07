@@ -1,4 +1,4 @@
-import { Edges, Octahedron as OctahedronPrimitive } from "@react-three/drei";
+import { Edges, Octahedron as OctahedronDrei } from "@react-three/drei";
 import { useControls } from "leva";
 import { useMemo } from "react";
 import { IShape } from "../types";
@@ -16,7 +16,7 @@ const Octahedron = ({
     [size, iterations]
   );
 
-  const { rotation } = useControls("Octahedron", {
+  const { rotation } = useControls("octahedron", {
     rotation: {
       x: 0,
       y: 0,
@@ -26,7 +26,7 @@ const Octahedron = ({
   const { x, y, z } = pos;
 
   return (
-    <OctahedronPrimitive
+    <OctahedronDrei
       args={[initialScale * scale, 0]}
       position={[x * scale, y * scale, z * scale]}
       rotation={[rotation.x, rotation.y, rotation.z]}
@@ -40,7 +40,7 @@ const Octahedron = ({
         material={material}
         visible={showEdges}
       />
-    </OctahedronPrimitive>
+    </OctahedronDrei>
   );
 };
 

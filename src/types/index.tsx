@@ -22,19 +22,19 @@ export interface IShape {
 }
 
 export const ShapeMap = new Map<string, FC<IShape>>([
-  ["Cube", Cube],
-  ["Tetrahedron", Tetrahedron],
-  ["Cuboctahedron", Cuboctahedron],
-  ["Hexagonal Bipyramid", HexagonalBipyramid],
-  ["Octahedron", Octahedron],
+  ["cube", Cube],
+  ["tetrahedron", Tetrahedron],
+  ["cuboctahedron", Cuboctahedron],
+  ["hexagonal bipyramid", HexagonalBipyramid],
+  ["octahedron", Octahedron],
 ]);
 
 export const BETA_SUFFIX = " *";
 
 const ShapeMapKeys = Array.from(ShapeMap.keys());
 export const DefaultShapeMapKeys = ShapeMapKeys.filter((key) =>
-  ["Cube", "Tetrahedron"].includes(key)
+  ["cube", "tetrahedron"].includes(key)
 );
 export const BetaShapeMapKeys = ShapeMapKeys.filter(
-  (key) => !["Cube", "Tetrahedron"].includes(key)
+  (key) => !["cube", "tetrahedron"].includes(key)
 ).map((key) => key + BETA_SUFFIX);

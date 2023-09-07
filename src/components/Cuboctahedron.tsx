@@ -21,7 +21,7 @@ const Cuboctahedron = ({
 
   const { x, y, z } = pos;
 
-  const { rotation } = useControls("Cuboctahedron", {
+  const { rotation } = useControls("cuboctahedron", {
     rotation: {
       x: 0,
       y: 0,
