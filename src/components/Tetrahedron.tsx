@@ -1,4 +1,4 @@
-import { Tetrahedron as TetrahedronPrimitive } from "@react-three/drei";
+import { Edges, Tetrahedron as TetrahedronPrimitive } from "@react-three/drei";
 import { useMemo } from "react";
 import { IShape } from "../types";
 import CubeText from "./CubeText";
@@ -9,8 +9,9 @@ const Tetrahedron = ({
   size,
   iterations,
   material,
-  showText,
   opacity,
+  showText,
+  showEdges,
 }: IShape) => {
   const scale = useMemo(
     () => size / Math.pow(size, Math.pow(2, iterations)),
@@ -36,6 +37,12 @@ const Tetrahedron = ({
           opacity={opacity}
         />
       )}
+      <Edges
+        scale={scale}
+        threshold={15}
+        material={material}
+        visible={showEdges}
+      />
     </TetrahedronPrimitive>
   );
 };
