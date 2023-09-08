@@ -11,12 +11,12 @@ import { parseShapeKey } from "./utils";
 
 const App = () => {
   const [betaMode, setBetaMode] = useState(false);
+  const [shape, setShape] = useState("cube");
   const [reset, setReset] = useState(false);
   const cameraControlRef = useRef<CameraControls>(null);
 
   const [
     {
-      shape,
       scale,
       dimension,
       iterations,
@@ -29,13 +29,14 @@ const App = () => {
       showStats,
     },
   ] = useControls(
-    "Imaginary Cube Fractal Controls",
+    "imaginary cube fractal controls",
     () => ({
       shape: {
         options: betaMode
           ? [...DefaultShapeMapKeys, ...BetaShapeMapKeys]
           : DefaultShapeMapKeys,
-        value: "Cube",
+        value: shape,
+        onChange: (value) => setShape(value),
       },
       scale: {
         value: 1.0,
@@ -71,7 +72,7 @@ const App = () => {
           </span>
         ),
         value: true,
-        disabled: betaMode,
+        disabled: betaMode && BetaShapeMapKeys.includes(shape),
       },
       showEdges: {
         label: (
@@ -107,7 +108,7 @@ const App = () => {
         }
       }),
     }),
-    [betaMode]
+    [betaMode, shape]
   );
 
   return (
