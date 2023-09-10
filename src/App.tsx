@@ -49,6 +49,11 @@ const App = () => {
         min: 1,
         max: 10,
         step: 1,
+        onEditEnd: (value) => {
+          if (cameraControlRef && cameraControlRef.current) {
+            cameraControlRef.current.moveTo(0, 0, value * 2, true);
+          }
+        },
       },
       iterations: {
         value: 0,
@@ -113,6 +118,7 @@ const App = () => {
 
   return (
     <>
+      <h1>Imaginary Cube Visualizer</h1>
       <Canvas camera={{ position: [0, 0, dimension * 2] }} shadows>
         <Lights distance={dimension * 2} />
         <FractalCube
