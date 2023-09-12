@@ -116,7 +116,7 @@ const FractalCanvas = () => {
   );
 
   return (
-    <div className="w-[300px] h-[300px]">
+    <div className="w-[300px] h-[300px] my-2">
       <Canvas camera={{ position: [0, 0, dimension * 2] }} shadows>
         <Lights distance={dimension * 2} />
         <FractalCube
