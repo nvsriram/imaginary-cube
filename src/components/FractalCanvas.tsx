@@ -9,15 +9,22 @@ import Lights from "./Lights";
 import Screens from "./Screens";
 
 const FractalCanvas = forwardRef<HTMLElement>((_, parentRef) => {
+  const [dimension, setDimension] = useState(1);
   const [betaMode, setBetaMode] = useState(false);
   const [shape, setShape] = useState("cube");
   const [reset, setReset] = useState(false);
   const cameraControlRef = useRef<CameraControls>(null);
 
+  const handleCameraReset = (value: number) => {
+    if (cameraControlRef && cameraControlRef.current) {
+      cameraControlRef.current.setPosition(0, 0, value * 2, true);
+      cameraControlRef.current.setTarget(0, 0, 0);
+    }
+  };
+
   const [
     {
       scale,
-      dimension,
       iterations,
       color,
       opacity,
@@ -44,14 +51,13 @@ const FractalCanvas = forwardRef<HTMLElement>((_, parentRef) => {
         step: 0.1,
       },
       dimension: {
-        value: 1,
+        value: dimension,
         min: 1,
         max: 10,
         step: 1,
-        onEditEnd: (value) => {
-          if (cameraControlRef && cameraControlRef.current) {
-            cameraControlRef.current.moveTo(0, 0, value * 2, true);
-          }
+        onChange: (value) => {
+          handleCameraReset(value);
+          setDimension(value);
         },
       },
       iterations: {
@@ -107,12 +113,10 @@ const FractalCanvas = forwardRef<HTMLElement>((_, parentRef) => {
       },
       ["reset scene"]: button(() => {
         setReset(true);
-        if (cameraControlRef && cameraControlRef.current) {
-          cameraControlRef.current.reset(true);
-        }
+        handleCameraReset(dimension);
       }),
     }),
-    [betaMode, shape]
+    [betaMode, dimension, shape]
   );
 
   return (
