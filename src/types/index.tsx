@@ -32,9 +32,7 @@ export const ShapeMap = new Map<string, FC<IShape>>([
 export const BETA_SUFFIX = " *";
 
 const ShapeMapKeys = Array.from(ShapeMap.keys());
-export const DefaultShapeMapKeys = ShapeMapKeys.filter((key) =>
-  ["cube", "tetrahedron"].includes(key)
-);
+export const DefaultShapeMapKeys = ["cube", "tetrahedron"];
 export const BetaShapeMapKeys = ShapeMapKeys.filter(
-  (key) => !["cube", "tetrahedron"].includes(key)
+  (key) => !DefaultShapeMapKeys.includes(key)
 ).map((key) => key + BETA_SUFFIX);
