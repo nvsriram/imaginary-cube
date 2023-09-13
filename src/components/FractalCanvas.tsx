@@ -1,14 +1,14 @@
 import { CameraControls, Stats } from "@react-three/drei";
 import { Canvas } from "@react-three/fiber";
 import { button, useControls } from "leva";
-import { useRef, useState } from "react";
+import { RefObject, forwardRef, useRef, useState } from "react";
 import { BetaShapeMapKeys, DefaultShapeMapKeys } from "../types";
 import { parseShapeKey } from "../utils";
 import FractalCube from "./FractalCube";
 import Lights from "./Lights";
 import Screens from "./Screens";
 
-const FractalCanvas = () => {
+const FractalCanvas = forwardRef<HTMLElement>((_, parentRef) => {
   const [betaMode, setBetaMode] = useState(false);
   const [shape, setShape] = useState("cube");
   const [reset, setReset] = useState(false);
@@ -132,13 +132,18 @@ const FractalCanvas = () => {
           setReset={setReset}
         />
         <Screens scale={dimension * 2} />
-        {showStats && <Stats />}
+        {showStats && (
+          <Stats
+            parent={parentRef as RefObject<HTMLElement>}
+            className="!absolute"
+          />
+        )}
         <CameraControls ref={cameraControlRef} />
         <axesHelper args={[dimension]} visible={showAxes} />
         <gridHelper visible={showGrid} />
       </Canvas>
     </div>
   );
-};
+});
 
 export default FractalCanvas;
