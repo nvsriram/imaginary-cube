@@ -38,7 +38,7 @@ const Cube = ({
         />
       )}
       <Edges
-        scale={scale}
+        scale={initialScale}
         threshold={15}
         material={material}
         visible={showEdges}
