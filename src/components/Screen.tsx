@@ -9,8 +9,8 @@ interface IScreen {
   "rotation-y"?: number;
 }
 
-const Screen = ({ scale, ...props }: IScreen) => {
-  return <Plane args={[scale, scale]} receiveShadow {...props} />;
-};
+const Screen = ({ scale, ...props }: IScreen) => (
+  <Plane args={[scale, scale]} receiveShadow {...props} />
+);
 
 export default Screen;

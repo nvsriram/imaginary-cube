@@ -15,7 +15,6 @@ const HexagonalBipyramid = ({
     () => size / Math.pow(size, Math.pow(2, iterations)),
     [size, iterations]
   );
-
   const { rotation } = useControls("hexagonal bipyramid", {
     rotation: {
       x: 0,

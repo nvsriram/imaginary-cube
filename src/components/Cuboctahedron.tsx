@@ -18,9 +18,7 @@ const Cuboctahedron = ({
     () => size / Math.pow(size, Math.pow(2, iterations)),
     [size, iterations]
   );
-
   const { x, y, z } = pos;
-
   const { rotation } = useControls("cuboctahedron", {
     rotation: {
       x: 0,
