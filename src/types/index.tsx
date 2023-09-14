@@ -5,12 +5,13 @@ import Cuboctahedron from "../components/Cuboctahedron";
 import HexagonalBipyramid from "../components/HexagonalBipyramid";
 import Octahedron from "../components/Octahedron";
 import Tetrahedron from "../components/Tetrahedron";
+import { convertToBetaShape } from "../utils";
 
-export type CubeGrid = boolean[][][];
-export type CubePositions = Vector3[];
-export type LatinSquare = number[][];
+type CubeGrid = boolean[][][];
+type CubePositions = Vector3[];
+type LatinSquare = number[][];
 
-export interface IShape {
+interface IShape {
   pos: THREE.Vector3;
   initialScale: number;
   size: number;
@@ -21,7 +22,7 @@ export interface IShape {
   showEdges: boolean;
 }
 
-export const ShapeMap = new Map<string, FC<IShape>>([
+const ShapeMap = new Map<string, FC<IShape>>([
   ["cube", Cube],
   ["tetrahedron", Tetrahedron],
   ["cuboctahedron", Cuboctahedron],
@@ -29,10 +30,12 @@ export const ShapeMap = new Map<string, FC<IShape>>([
   ["octahedron", Octahedron],
 ]);
 
-export const BETA_SUFFIX = " *";
-
 const ShapeMapKeys = Array.from(ShapeMap.keys());
-export const DefaultShapeMapKeys = ["cube", "tetrahedron"];
-export const BetaShapeMapKeys = ShapeMapKeys.filter(
-  (key) => !DefaultShapeMapKeys.includes(key)
-).map((key) => key + BETA_SUFFIX);
+const DefaultShapeMapKeys = ["cube", "tetrahedron"];
+const BetaShapeMapKeys = convertToBetaShape(
+  ShapeMapKeys.filter((key) => !DefaultShapeMapKeys.includes(key))
+);
+const AllShapeMapKeys = [...DefaultShapeMapKeys, ...BetaShapeMapKeys];
+
+export { AllShapeMapKeys, DefaultShapeMapKeys, ShapeMap };
+export type { CubeGrid, CubePositions, IShape, LatinSquare };
