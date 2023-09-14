@@ -1,3 +1,5 @@
+import { useMemo } from "react";
+import { MeshStandardMaterial } from "three";
 import Screen from "./Screen";
 
 interface IScreens {
@@ -5,20 +7,29 @@ interface IScreens {
 }
 
 const Screens = ({ scale }: IScreens) => {
+  const material = useMemo(() => new MeshStandardMaterial({}), []);
+
   return (
-    <>
+    <group>
       <Screen
-        rotation-x={-Math.PI / 2}
+        material={material}
+        scale={scale}
         position={[0, -scale / 2, 0]}
-        scale={scale}
+        rotation-x={-Math.PI / 2}
       />
-      <Screen rotation-x={0} position={[0, 0, -scale / 2]} scale={scale} />
       <Screen
-        rotation-y={Math.PI / 2}
-        position={[-scale / 2, 0, 0]}
+        material={material}
         scale={scale}
+        position={[0, 0, -scale / 2]}
+        rotation-x={0}
       />
-    </>
+      <Screen
+        material={material}
+        scale={scale}
+        position={[-scale / 2, 0, 0]}
+        rotation-y={Math.PI / 2}
+      />
+    </group>
   );
 };
 
