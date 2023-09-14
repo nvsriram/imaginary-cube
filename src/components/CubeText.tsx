@@ -14,7 +14,7 @@ const CubeText = ({ size, fractal, pos, initialScale, opacity }: ICubeText) => {
   const scale = (size / newSize) * initialScale;
   const half = (newSize - 1) / 2;
   return (
-    <>
+    <group>
       <Text
         font="monospace"
         fontSize={0.5 * scale}
@@ -68,7 +68,7 @@ const CubeText = ({ size, fractal, pos, initialScale, opacity }: ICubeText) => {
       >
         {pos.y + half + 1}
       </Text>
-    </>
+    </group>
   );
 };
 
