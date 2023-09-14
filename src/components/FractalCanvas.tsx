@@ -2,7 +2,7 @@ import { CameraControls, Stats } from "@react-three/drei";
 import { Canvas } from "@react-three/fiber";
 import { button, useControls } from "leva";
 import { RefObject, forwardRef, useRef, useState } from "react";
-import { BetaShapeMapKeys, DefaultShapeMapKeys } from "../types";
+import { AllShapeMapKeys, DefaultShapeMapKeys } from "../types";
 import { parseShapeKey } from "../utils";
 import FractalCube from "./FractalCube";
 import Lights from "./Lights";
@@ -15,10 +15,12 @@ const FractalCanvas = forwardRef<HTMLElement>((_, parentRef) => {
   const [reset, setReset] = useState(false);
   const cameraControlRef = useRef<CameraControls>(null);
 
+  const ZOOM_FACTOR = 3;
+
   const handleCameraReset = (value: number) => {
     if (cameraControlRef && cameraControlRef.current) {
-      cameraControlRef.current.setPosition(0, 0, value * 2, true);
-      cameraControlRef.current.setTarget(0, 0, 0);
+      cameraControlRef.current.setPosition(0, 0, value * ZOOM_FACTOR, true);
+      cameraControlRef.current.setTarget(0, 0, 0, true);
     }
   };
 
@@ -38,9 +40,7 @@ const FractalCanvas = forwardRef<HTMLElement>((_, parentRef) => {
     "imaginary cube fractal controls",
     () => ({
       shape: {
-        options: betaMode
-          ? [...DefaultShapeMapKeys, ...BetaShapeMapKeys]
-          : DefaultShapeMapKeys,
+        options: betaMode ? AllShapeMapKeys : DefaultShapeMapKeys,
         value: shape,
         onChange: (value) => setShape(value),
       },
@@ -82,7 +82,7 @@ const FractalCanvas = forwardRef<HTMLElement>((_, parentRef) => {
           </span>
         ),
         value: true,
-        disabled: betaMode && BetaShapeMapKeys.includes(shape),
+        disabled: shape != "cube",
       },
       showEdges: {
         label: (
@@ -120,9 +120,9 @@ const FractalCanvas = forwardRef<HTMLElement>((_, parentRef) => {
   );
 
   return (
-    <div className="w-[300px] h-[300px] my-2">
-      <Canvas camera={{ position: [0, 0, dimension * 2] }} shadows>
-        <Lights distance={dimension * 2} />
+    <div className="w-[300px] h-[300px] my-2 bg-elevation1">
+      <Canvas camera={{ position: [0, 0, dimension * ZOOM_FACTOR] }} shadows>
+        <Lights distance={dimension * ZOOM_FACTOR} />
         <FractalCube
           shape={parseShapeKey(shape)}
           initialScale={scale}
