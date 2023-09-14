@@ -1,28 +1,33 @@
 import { CameraControls, Stats } from "@react-three/drei";
 import { Canvas } from "@react-three/fiber";
 import { button, useControls } from "leva";
-import { RefObject, forwardRef, useRef, useState } from "react";
+import { RefObject, useCallback, useRef, useState } from "react";
 import { AllShapeMapKeys, DefaultShapeMapKeys } from "../types";
 import { parseShapeKey } from "../utils";
 import FractalCube from "./FractalCube";
 import Lights from "./Lights";
 import Screens from "./Screens";
 
-const FractalCanvas = forwardRef<HTMLElement>((_, parentRef) => {
+const FractalCanvas = () => {
   const [dimension, setDimension] = useState(1);
   const [betaMode, setBetaMode] = useState(false);
   const [shape, setShape] = useState("cube");
   const [reset, setReset] = useState(false);
+
+  const divRef = useRef<HTMLDivElement>(null);
   const cameraControlRef = useRef<CameraControls>(null);
 
   const ZOOM_FACTOR = 3;
 
-  const handleCameraReset = (value: number) => {
-    if (cameraControlRef && cameraControlRef.current) {
-      cameraControlRef.current.setPosition(0, 0, value * ZOOM_FACTOR, true);
-      cameraControlRef.current.setTarget(0, 0, 0, true);
-    }
-  };
+  const handleCameraReset = useCallback(
+    (value: number) => {
+      if (cameraControlRef && cameraControlRef.current) {
+        cameraControlRef.current.setPosition(0, 0, value * ZOOM_FACTOR, true);
+        cameraControlRef.current.setTarget(0, 0, 0, true);
+      }
+    },
+    [cameraControlRef]
+  );
 
   const [
     {
@@ -120,7 +125,10 @@ const FractalCanvas = forwardRef<HTMLElement>((_, parentRef) => {
   );
 
   return (
-    <div className="w-[300px] h-[300px] my-2 bg-elevation1">
+    <div
+      className="relative h-full w-full sm:w-[400px] md:w-[500px] lg:w-[800px] xl:w-[1000px] rounded-lg my-2 bg-elevation1"
+      ref={divRef}
+    >
       <Canvas camera={{ position: [0, 0, dimension * ZOOM_FACTOR] }} shadows>
         <Lights distance={dimension * ZOOM_FACTOR} />
         <FractalCube
@@ -138,7 +146,7 @@ const FractalCanvas = forwardRef<HTMLElement>((_, parentRef) => {
         <Screens scale={dimension * 2} />
         {showStats && (
           <Stats
-            parent={parentRef as RefObject<HTMLElement>}
+            parent={divRef as RefObject<HTMLDivElement>}
             className="!absolute"
           />
         )}
@@ -148,6 +156,6 @@ const FractalCanvas = forwardRef<HTMLElement>((_, parentRef) => {
       </Canvas>
     </div>
   );
-});
+};
 
 export default FractalCanvas;
