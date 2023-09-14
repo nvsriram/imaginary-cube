@@ -126,11 +126,10 @@ const FractalCanvas = () => {
 
   return (
     <div
-      className="relative h-full w-full sm:w-[400px] md:w-[500px] lg:w-[800px] xl:w-[1000px] rounded-lg my-2 bg-elevation1"
+      className="relative h-full w-full sm:w-[400px] md:w-[500px] lg:w-[800px] xl:w-[1000px] rounded-lg my-2 bg-elevation1 shadow-level1"
       ref={divRef}
     >
       <Canvas camera={{ position: [0, 0, dimension * ZOOM_FACTOR] }} shadows>
-        <Lights distance={dimension * ZOOM_FACTOR} />
         <FractalCube
           shape={parseShapeKey(shape)}
           initialScale={scale}
@@ -143,6 +142,7 @@ const FractalCanvas = () => {
           reset={reset}
           setReset={setReset}
         />
+        <Lights distance={dimension * ZOOM_FACTOR} />
         <Screens scale={dimension * 2} />
         {showStats && (
           <Stats

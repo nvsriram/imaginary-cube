@@ -19,6 +19,9 @@ export default {
         toolTipBackground: "#fefefe",
         toolTipText: "#181c20",
       },
+      boxShadow: {
+        level1: "0 0 9px 0 #00000088",
+      },
     },
   },
   plugins: [],
