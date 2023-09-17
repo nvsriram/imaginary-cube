@@ -1,15 +1,14 @@
 import { Loader } from "@react-three/drei";
 import FractalCanvas from "./components/FractalCanvas";
 import Footer from "./components/Footer";
+import Navbar from "./components/Navbar";
 
 const App = () => {
   return (
     <div className="container min-h-screen flex flex-col mx-auto">
+      <Navbar />
       <main className="h-full w-full sm:pb-10 flex flex-1 flex-col mx-auto">
         <section className="w-full h-full flex flex-col pt-5 mx-auto px-3 lg:px-0 gap-2 items-center justify-center">
-          <h1 className="text-folderTextColor font-semibold text-xl">
-            Imaginary Cube Visualizer
-          </h1>
           <details className="w-full h-full py-3 text-folderWidgetColor font-normal">
             <summary>Description</summary>
             <p>
