@@ -3,13 +3,13 @@ const Footer = () => {
     <footer className="w-full h-full container mx-auto mt-2">
       <hr className="w-full bg-elevation1 border-0 h-px" />
       <div className="flex flex-col gap-2 sm:flex-row sm:gap-0 w-full mx-auto py-5 px-4 items-center justify-between">
-        <small className="text-xs sm:text-sm text-folderWidgetColor">{`© ${new Date().getFullYear()} Imaginary Cube Visualizer. All Rights Reserved.`}</small>
-        <ul className="h-full w-full sm:w-fit flex flex-wrap text-folderWidgetColor justify-center">
+        <small className="text-xs sm:text-sm text-highlight1">{`© ${new Date().getFullYear()} Imaginary Cube Visualizer. All Rights Reserved.`}</small>
+        <ul className="h-full w-full sm:w-fit flex flex-wrap text-highlight1 justify-center">
           <li className="pr-2">
             <a
               href="https://twitter.com/snuraniv"
               target="_blank"
-              className="hover:text-folderTextColor ease-in-out duration-200 focus:text-folderTextColor focus:ring-0 appearance-none focus:outline-none"
+              className="hover:text-highlight3 ease-in-out duration-200 focus:text-highlight3 focus:ring-0 appearance-none focus:outline-none"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -25,7 +25,7 @@ const Footer = () => {
             <a
               href="https://github.com/nvsriram/imaginary-cube"
               target="_blank"
-              className="hover:text-folderTextColor ease-in-out duration-200 focus:text-folderTextColor focus:ring-0 appearance-none focus:outline-none"
+              className="hover:text-highlight3 ease-in-out duration-200 focus:text-highlight3 focus:ring-0 appearance-none focus:outline-none"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -41,7 +41,7 @@ const Footer = () => {
             <a
               href="https://www.linkedin.com/in/nvsriram"
               target="_blank"
-              className="hover:text-folderTextColor ease-in-out duration-200 focus:text-folderTextColor focus:ring-0 appearance-none focus:outline-none"
+              className="hover:text-highlight3 ease-in-out duration-200 focus:text-highlight3 focus:ring-0 appearance-none focus:outline-none"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -57,7 +57,7 @@ const Footer = () => {
             <a
               href="mailto:nuranisri01@gmail.com"
               target="_blank"
-              className="hover:text-folderTextColor ease-in-out duration-200 focus:text-folderTextColor focus:ring-0 appearance-none focus:outline-none"
+              className="hover:text-highlight3 ease-in-out duration-200 focus:text-highlight3 focus:ring-0 appearance-none focus:outline-none"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
