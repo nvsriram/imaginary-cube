@@ -14,8 +14,8 @@ type LatinSquare = number[][];
 interface IShape {
   pos: THREE.Vector3;
   initialScale: number;
+  scale: number;
   size: number;
-  iterations: number;
   material: THREE.Material;
   showText: boolean;
   opacity: number;
