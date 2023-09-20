@@ -2,17 +2,16 @@ import { Text } from "@react-three/drei";
 import { Vector3 } from "three";
 
 interface ICubeText {
-  size: number;
-  fractal: number;
   pos: Vector3;
-  initialScale: number;
+  scale: number;
+  size: number;
   opacity: number;
 }
 
-const CubeText = ({ size, fractal, pos, initialScale, opacity }: ICubeText) => {
-  const newSize = Math.pow(size, Math.pow(2, fractal));
-  const scale = (size / newSize) * initialScale;
-  const half = (newSize - 1) / 2;
+const CubeText = ({ pos, scale, size, opacity }: ICubeText) => {
+  const { x, y, z } = pos;
+  const half = (size - 1) / 2;
+
   return (
     <group>
       <Text
@@ -21,7 +20,7 @@ const CubeText = ({ size, fractal, pos, initialScale, opacity }: ICubeText) => {
         position-z={0.501 * scale}
         fillOpacity={opacity}
       >
-        {newSize - (pos.z + half)}
+        {size - (z + half)}
       </Text>
       <Text
         font="monospace"
@@ -30,7 +29,7 @@ const CubeText = ({ size, fractal, pos, initialScale, opacity }: ICubeText) => {
         rotation={[Math.PI, 0, Math.PI]}
         fillOpacity={opacity}
       >
-        {pos.z + half + 1}
+        {z + half + 1}
       </Text>
       <Text
         font="monospace"
@@ -39,7 +38,7 @@ const CubeText = ({ size, fractal, pos, initialScale, opacity }: ICubeText) => {
         rotation={[0, Math.PI / 2, 0]}
         fillOpacity={opacity}
       >
-        {newSize - (pos.x + half)}
+        {size - (x + half)}
       </Text>
       <Text
         font="monospace"
@@ -48,7 +47,7 @@ const CubeText = ({ size, fractal, pos, initialScale, opacity }: ICubeText) => {
         rotation={[0, -Math.PI / 2, 0]}
         fillOpacity={opacity}
       >
-        {pos.x + half + 1}
+        {x + half + 1}
       </Text>
       <Text
         font="monospace"
@@ -57,7 +56,7 @@ const CubeText = ({ size, fractal, pos, initialScale, opacity }: ICubeText) => {
         rotation={[-Math.PI / 2, 0, 0]}
         fillOpacity={opacity}
       >
-        {newSize - (pos.y + half)}
+        {size - (y + half)}
       </Text>
       <Text
         font="monospace"
@@ -66,7 +65,7 @@ const CubeText = ({ size, fractal, pos, initialScale, opacity }: ICubeText) => {
         rotation={[Math.PI / 2, 0, 0]}
         fillOpacity={opacity}
       >
-        {pos.y + half + 1}
+        {y + half + 1}
       </Text>
     </group>
   );
