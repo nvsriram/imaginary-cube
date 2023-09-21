@@ -105,6 +105,12 @@ const FractalCube = ({
     setCubePositions(shownPositions);
   }, [iterations, size]);
 
+  // handle scale
+  const scale = useMemo(
+    () => size / Math.pow(size, Math.pow(2, iterations)),
+    [size, iterations]
+  );
+
   // handle shape
   const Shape = ShapeMap.get(shape);
   if (!Shape) {
@@ -123,8 +129,8 @@ const FractalCube = ({
           key={idx}
           pos={pos}
           initialScale={initialScale}
+          scale={scale}
           size={size}
-          iterations={iterations}
           material={material}
           opacity={opacity}
           showText={showText}

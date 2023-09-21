@@ -1,19 +1,13 @@
 import { Edges, Tetrahedron as TetrahedronDrei } from "@react-three/drei";
-import { useMemo } from "react";
 import { IShape } from "../types";
 
 const Tetrahedron = ({
   pos,
   initialScale,
-  size,
-  iterations,
+  scale,
   material,
   showEdges,
 }: IShape) => {
-  const scale = useMemo(
-    () => size / Math.pow(size, Math.pow(2, iterations)),
-    [size, iterations]
-  );
   const { x, y, z } = pos;
 
   return (
