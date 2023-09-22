@@ -9,15 +9,10 @@ import { IShape } from "../types";
 const Cuboctahedron = ({
   pos,
   initialScale,
-  size,
-  iterations,
+  scale,
   material,
   showEdges,
 }: IShape) => {
-  const scale = useMemo(
-    () => size / Math.pow(size, Math.pow(2, iterations)),
-    [size, iterations]
-  );
   const { x, y, z } = pos;
   const { rotation } = useControls("cuboctahedron", {
     rotation: {
