@@ -1,20 +1,15 @@
 import { Cone, Edges } from "@react-three/drei";
 import { useControls } from "leva";
-import { useMemo } from "react";
 import { IShape } from "../types";
 
 const HexagonalBipyramid = ({
   pos,
   initialScale,
-  size,
-  iterations,
+  scale,
   material,
   showEdges,
 }: IShape) => {
-  const scale = useMemo(
-    () => size / Math.pow(size, Math.pow(2, iterations)),
-    [size, iterations]
-  );
+  const { x, y, z } = pos;
   const { rotation } = useControls("hexagonal bipyramid", {
     rotation: {
       x: 0,
@@ -22,7 +17,6 @@ const HexagonalBipyramid = ({
       z: 0,
     },
   });
-  const { x, y, z } = pos;
 
   return (
     <group>
