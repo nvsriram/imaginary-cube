@@ -1,15 +1,15 @@
 import { Loader } from "@react-three/drei";
-import FractalCanvas from "./components/FractalCanvas";
 import Footer from "./components/Footer";
+import FractalCanvas from "./components/FractalCanvas";
 import Navbar from "./components/Navbar";
 
 const App = () => {
   return (
-    <div className="container min-h-screen flex flex-col mx-auto">
+    <div className="container mx-auto flex min-h-screen flex-col">
       <Navbar />
-      <main className="h-full w-full sm:pb-10 flex flex-1 flex-col mx-auto">
-        <section className="w-full h-full flex flex-col pt-5 mx-auto px-3 lg:px-0 gap-2 items-center justify-center">
-          <details className="w-full h-full py-3 text-folderWidgetColor font-normal">
+      <main className="mx-auto flex h-full w-full flex-1 flex-col gap-2 px-3 pb-5 sm:pb-10 lg:px-0">
+        <section className="flex h-full w-full flex-col items-center justify-center pt-5">
+          <details className="h-full w-full py-3 font-normal text-folderWidgetColor">
             <summary>Description</summary>
             <p>
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur
@@ -57,6 +57,8 @@ const App = () => {
               elementum mi.
             </p>
           </details>
+        </section>
+        <section className="flex h-full w-full grow flex-col">
           <FractalCanvas />
           <Loader />
         </section>

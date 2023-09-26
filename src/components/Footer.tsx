@@ -1,19 +1,19 @@
 const Footer = () => {
   return (
-    <footer className="w-full h-full container mx-auto mt-2">
-      <hr className="w-full bg-elevation1 border-0 h-px" />
-      <div className="flex flex-col gap-2 sm:flex-row sm:gap-0 w-full mx-auto py-5 px-4 items-center justify-between">
-        <small className="text-xs sm:text-sm text-highlight1">{`© ${new Date().getFullYear()} Imaginary Cube Visualizer. All Rights Reserved.`}</small>
-        <ul className="h-full w-full sm:w-fit flex flex-wrap text-highlight1 justify-center">
+    <footer className="container mx-auto mt-2 h-full w-full">
+      <hr className="h-px w-full border-0 bg-elevation1" />
+      <div className="mx-auto flex w-full flex-col items-center justify-between gap-2 px-4 py-5 sm:flex-row sm:gap-0">
+        <small className="text-xs text-highlight1 sm:text-sm">{`© ${new Date().getFullYear()} Imaginary Cube Visualizer. All Rights Reserved.`}</small>
+        <ul className="flex h-full w-full flex-wrap justify-center text-highlight1 sm:w-fit">
           <li className="pr-2">
             <a
               href="https://twitter.com/snuraniv"
               target="_blank"
-              className="hover:text-highlight3 ease-in-out duration-200 focus:text-highlight3 focus:ring-0 appearance-none focus:outline-none"
+              className="appearance-none duration-200 ease-in-out hover:text-highlight3 focus:text-highlight3 focus:outline-none focus:ring-0"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                className="w-4 h-4 md:w-5 md:h-5"
+                className="h-4 w-4 md:h-5 md:w-5"
                 fill="currentColor"
                 viewBox="0 0 24 24"
               >
@@ -25,11 +25,11 @@ const Footer = () => {
             <a
               href="https://github.com/nvsriram/imaginary-cube"
               target="_blank"
-              className="hover:text-highlight3 ease-in-out duration-200 focus:text-highlight3 focus:ring-0 appearance-none focus:outline-none"
+              className="appearance-none duration-200 ease-in-out hover:text-highlight3 focus:text-highlight3 focus:outline-none focus:ring-0"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                className="w-4 h-4 md:w-5 md:h-5"
+                className="h-4 w-4 md:h-5 md:w-5"
                 fill="currentColor"
                 viewBox="0 0 24 24"
               >
@@ -41,11 +41,11 @@ const Footer = () => {
             <a
               href="https://www.linkedin.com/in/nvsriram"
               target="_blank"
-              className="hover:text-highlight3 ease-in-out duration-200 focus:text-highlight3 focus:ring-0 appearance-none focus:outline-none"
+              className="appearance-none duration-200 ease-in-out hover:text-highlight3 focus:text-highlight3 focus:outline-none focus:ring-0"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                className="w-4 h-4 md:w-5 md:h-5 pb-0.5"
+                className="h-4 w-4 pb-0.5 md:h-5 md:w-5"
                 fill="currentColor"
                 viewBox="0 0 24 24"
               >
@@ -57,11 +57,11 @@ const Footer = () => {
             <a
               href="mailto:nuranisri01@gmail.com"
               target="_blank"
-              className="hover:text-highlight3 ease-in-out duration-200 focus:text-highlight3 focus:ring-0 appearance-none focus:outline-none"
+              className="appearance-none duration-200 ease-in-out hover:text-highlight3 focus:text-highlight3 focus:outline-none focus:ring-0"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                className="w-4 h-4 md:w-5 md:h-5"
+                className="h-4 w-4 md:h-5 md:w-5"
                 fill="none"
                 viewBox="0 0 24 24"
                 strokeWidth={1.5}

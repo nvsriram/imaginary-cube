@@ -26,7 +26,7 @@ const FractalCanvas = () => {
         cameraControlRef.current.setTarget(0, 0, 0, true);
       }
     },
-    [cameraControlRef]
+    [cameraControlRef],
   );
 
   const [
@@ -121,12 +121,12 @@ const FractalCanvas = () => {
         handleCameraReset(dimension);
       }),
     }),
-    [betaMode, dimension, shape]
+    [betaMode, dimension, shape],
   );
 
   return (
     <div
-      className="relative h-full w-full sm:w-[400px] md:w-[640px] lg:w-[768px] xl:w-[1024px] rounded-lg bg-elevation1 shadow-level1"
+      className="relative flex grow rounded-lg bg-elevation1 shadow-level1"
       ref={divRef}
     >
       <Canvas camera={{ position: [0, 0, dimension * ZOOM_FACTOR] }} shadows>

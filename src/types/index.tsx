@@ -33,7 +33,7 @@ const ShapeMap = new Map<string, FC<IShape>>([
 const ShapeMapKeys = Array.from(ShapeMap.keys());
 const DefaultShapeMapKeys = ["cube", "tetrahedron"];
 const BetaShapeMapKeys = convertToBetaShape(
-  ShapeMapKeys.filter((key) => !DefaultShapeMapKeys.includes(key))
+  ShapeMapKeys.filter((key) => !DefaultShapeMapKeys.includes(key)),
 );
 const AllShapeMapKeys = [...DefaultShapeMapKeys, ...BetaShapeMapKeys];
 

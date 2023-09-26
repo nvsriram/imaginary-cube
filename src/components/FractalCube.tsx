@@ -67,7 +67,7 @@ const FractalCube = ({
         opacity: 0.4,
         transparent: true,
       }),
-    [color]
+    [color],
   );
   useFrame((_, delta) => {
     material.opacity = opacity;
@@ -108,7 +108,7 @@ const FractalCube = ({
   // handle scale
   const scale = useMemo(
     () => size / Math.pow(size, Math.pow(2, iterations)),
-    [size, iterations]
+    [size, iterations],
   );
 
   // handle shape

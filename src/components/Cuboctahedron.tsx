@@ -37,7 +37,7 @@ const Cuboctahedron = ({
           child.scale.set(
             initialScale * scale,
             initialScale * scale,
-            initialScale * scale
+            initialScale * scale,
           );
           child.rotation.x = rotation.x;
           child.rotation.y = rotation.y;
@@ -55,7 +55,7 @@ const Cuboctahedron = ({
       x,
       y,
       z,
-    ]
+    ],
   );
 
   if (!geometry) return null;
