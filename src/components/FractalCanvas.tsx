@@ -126,10 +126,14 @@ const FractalCanvas = () => {
 
   return (
     <div
-      className="relative flex grow rounded-lg bg-elevation1 shadow-level1"
+      className="relative h-full w-full grow rounded-lg bg-elevation1 shadow-level1"
       ref={divRef}
     >
-      <Canvas camera={{ position: [0, 0, dimension * ZOOM_FACTOR] }} shadows>
+      <Canvas
+        camera={{ position: [0, 0, dimension * ZOOM_FACTOR] }}
+        shadows
+        className="!absolute"
+      >
         <FractalCube
           shape={parseShapeKey(shape)}
           initialScale={scale}

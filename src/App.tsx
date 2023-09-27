@@ -7,7 +7,7 @@ const App = () => {
   return (
     <div className="container mx-auto flex min-h-screen flex-col">
       <Navbar />
-      <main className="mx-auto flex h-full w-full flex-1 flex-col gap-2 px-3 pb-5 sm:pb-10 lg:px-0">
+      <main className="mx-auto flex h-full w-full flex-1 flex-col gap-2 overflow-y-scroll px-3 pb-5 sm:pb-10 lg:px-0">
         <section className="flex h-full w-full flex-col items-center justify-center pt-5">
           <details className="h-full w-full py-3 font-normal text-folderWidgetColor">
             <summary>Description</summary>
