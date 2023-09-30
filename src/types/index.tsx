@@ -1,5 +1,5 @@
 import { FC } from "react";
-import { Vector3 } from "three";
+import { BufferGeometry, Group, Vector3 } from "three";
 import Cube from "../components/Cube";
 import Cuboctahedron from "../components/Cuboctahedron";
 import HexagonalBipyramid from "../components/HexagonalBipyramid";
@@ -10,6 +10,12 @@ import { convertToBetaShape } from "../utils";
 type CubeGrid = boolean[][][];
 type CubePositions = Vector3[];
 type LatinSquare = number[][];
+
+type ObjContextType = {
+  obj: Group;
+
+  geometry: BufferGeometry | null;
+};
 
 interface IShape {
   pos: THREE.Vector3;
@@ -38,4 +44,4 @@ const BetaShapeMapKeys = convertToBetaShape(
 const AllShapeMapKeys = [...DefaultShapeMapKeys, ...BetaShapeMapKeys];
 
 export { AllShapeMapKeys, DefaultShapeMapKeys, ShapeMap };
-export type { CubeGrid, CubePositions, IShape, LatinSquare };
+export type { CubeGrid, CubePositions, IShape, LatinSquare, ObjContextType };
