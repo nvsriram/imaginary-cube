@@ -2,6 +2,7 @@ import { Loader } from "@react-three/drei";
 import Footer from "./components/Footer";
 import FractalCanvas from "./components/FractalCanvas";
 import Navbar from "./components/Navbar";
+import ObjContextProvider from "./contexts/ObjContextProvider";
 
 const App = () => {
   return (
@@ -59,8 +60,10 @@ const App = () => {
           </details>
         </section>
         <section className="flex h-full w-full grow flex-col">
-          <FractalCanvas />
-          <Loader />
+          <ObjContextProvider>
+            <FractalCanvas />
+            <Loader />
+          </ObjContextProvider>
         </section>
       </main>
       <Footer />
