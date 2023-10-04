@@ -30,12 +30,7 @@ const Cube = ({
           opacity={opacity}
         />
       )}
-      <Edges
-        scale={initialScale}
-        threshold={15}
-        material={material}
-        visible={showEdges}
-      />
+      <Edges threshold={15} material={material} visible={showEdges} />
     </Box>
   );
 };
