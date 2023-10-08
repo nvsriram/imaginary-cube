@@ -31,6 +31,7 @@ const FractalCanvas = () => {
 
   const [
     {
+      randomize,
       scale,
       iterations,
       color,
@@ -48,6 +49,10 @@ const FractalCanvas = () => {
         options: betaMode ? AllShapeMapKeys : DefaultShapeMapKeys,
         value: shape,
         onChange: (value) => setShape(value),
+      },
+      randomize: {
+        label: <span title="randomizes fractal shapes">randomize</span>,
+        value: false,
       },
       scale: {
         value: 1.0,
@@ -132,6 +137,7 @@ const FractalCanvas = () => {
       <Canvas camera={{ position: [0, 0, dimension * ZOOM_FACTOR] }} shadows>
         <FractalCube
           shape={parseShapeKey(shape)}
+          randomize={randomize}
           initialScale={scale}
           size={dimension}
           iterations={iterations}

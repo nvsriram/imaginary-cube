@@ -14,12 +14,14 @@ import {
   generateFractalCubeGrid,
   generateFractalCubePositions,
   generateFractalLatinSquare,
+  getRandomShape,
   populateCubeGrid,
   shouldFill,
 } from "../utils";
 
 interface IFractalCube {
   shape: string;
+  randomize: boolean;
   initialScale: number;
   size: number;
   iterations: number;
@@ -33,6 +35,7 @@ interface IFractalCube {
 
 const FractalCube = ({
   shape,
+  randomize,
   initialScale,
   size,
   iterations,
@@ -111,12 +114,6 @@ const FractalCube = ({
     [size, iterations],
   );
 
-  // handle shape
-  const Shape = ShapeMap.get(shape);
-  if (!Shape) {
-    return null;
-  }
-
   return (
     <group
       ref={groupRef}
@@ -124,19 +121,26 @@ const FractalCube = ({
       onPointerLeave={() => setHovered(false)}
       onPointerDown={() => setRotate((prev) => !prev)}
     >
-      {cubePositions.map((pos, idx) => (
-        <Shape
-          key={idx}
-          pos={pos}
-          initialScale={initialScale}
-          scale={scale}
-          size={size}
-          material={material}
-          opacity={opacity}
-          showText={showText}
-          showEdges={showEdges}
-        />
-      ))}
+      {cubePositions.map((pos, idx) => {
+        // handle shape
+        const Shape = randomize ? getRandomShape() : ShapeMap.get(shape);
+        if (!Shape) {
+          return null;
+        }
+        return (
+          <Shape
+            key={idx}
+            pos={pos}
+            initialScale={initialScale}
+            scale={scale}
+            size={size}
+            material={material}
+            opacity={opacity}
+            showText={showText}
+            showEdges={showEdges}
+          />
+        );
+      })}
     </group>
   );
 };
