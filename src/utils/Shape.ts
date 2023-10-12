@@ -9,7 +9,9 @@ const parseShapeKey = (key: string) => key.replace(BETA_SUFFIX, "");
 
 const getRandomShape = (isBeta: boolean) => {
   const keys = isBeta ? AllShapeMapKeys : DefaultShapeMapKeys;
-  return ShapeMap.get(keys[Math.floor(Math.random() * keys.length)]);
+  return ShapeMap.get(
+    parseShapeKey(keys[Math.floor(Math.random() * keys.length)]),
+  );
 };
 
 const getShape = (key: string | undefined, isBeta: boolean) => {
