@@ -17,6 +17,7 @@ type ObjContextType = {
   geometry: BufferGeometry | null;
 };
 
+type Shape = FC<IShape>;
 interface IShape {
   pos: THREE.Vector3;
   initialScale: number;
@@ -44,4 +45,11 @@ const BetaShapeMapKeys = convertToBetaShape(
 const AllShapeMapKeys = [...DefaultShapeMapKeys, ...BetaShapeMapKeys];
 
 export { AllShapeMapKeys, DefaultShapeMapKeys, ShapeMap };
-export type { CubeGrid, CubePositions, IShape, LatinSquare, ObjContextType };
+export type {
+  CubeGrid,
+  CubePositions,
+  IShape,
+  LatinSquare,
+  ObjContextType,
+  Shape,
+};
