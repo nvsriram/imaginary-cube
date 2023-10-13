@@ -9,19 +9,19 @@ import {
   useState,
 } from "react";
 import * as THREE from "three";
-import { ShapeMap } from "../types";
 import {
   generateFractalCubeGrid,
   generateFractalCubePositions,
   generateFractalLatinSquare,
-  getRandomShape,
   populateCubeGrid,
   shouldFill,
 } from "../utils";
+import FractalShape from "./FractalShape";
 
 interface IFractalCube {
   shape: string;
-  randomize: boolean;
+  betaMode: boolean;
+  randomize: number;
   initialScale: number;
   size: number;
   iterations: number;
@@ -35,6 +35,7 @@ interface IFractalCube {
 
 const FractalCube = ({
   shape,
+  betaMode,
   randomize,
   initialScale,
   size,
@@ -122,14 +123,12 @@ const FractalCube = ({
       onPointerDown={() => setRotate((prev) => !prev)}
     >
       {cubePositions.map((pos, idx) => {
-        // handle shape
-        const Shape = randomize ? getRandomShape() : ShapeMap.get(shape);
-        if (!Shape) {
-          return null;
-        }
         return (
-          <Shape
+          <FractalShape
             key={idx}
+            shape={shape}
+            betaMode={betaMode}
+            randomize={randomize}
             pos={pos}
             initialScale={initialScale}
             scale={scale}

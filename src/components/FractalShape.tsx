@@ -23,9 +23,10 @@ const FractalShape = ({
 }: IFractalShape) => {
   // handle shape
   const Shape = useMemo(
-    () => getShape(randomize > 0 ? undefined : key, betaMode),
+    () => getShape(randomize === 0 ? key : undefined, betaMode),
     [randomize, key, betaMode],
   );
+
   if (!Shape) {
     return null;
   }
