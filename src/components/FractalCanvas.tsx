@@ -3,7 +3,6 @@ import { Canvas } from "@react-three/fiber";
 import { button, useControls } from "leva";
 import { RefObject, useCallback, useRef, useState } from "react";
 import { AllShapeMapKeys, DefaultShapeMapKeys } from "../types";
-import { parseShapeKey } from "../utils";
 import FractalCube from "./FractalCube";
 import Lights from "./Lights";
 import Screens from "./Screens";
@@ -13,6 +12,7 @@ const FractalCanvas = () => {
   const [betaMode, setBetaMode] = useState(false);
   const [shape, setShape] = useState("cube");
   const [reset, setReset] = useState(false);
+  const [randomize, setRandomize] = useState(0);
 
   const divRef = useRef<HTMLDivElement>(null);
   const cameraControlRef = useRef<CameraControls>(null);
@@ -31,7 +31,6 @@ const FractalCanvas = () => {
 
   const [
     {
-      randomize,
       scale,
       iterations,
       color,
@@ -48,12 +47,14 @@ const FractalCanvas = () => {
       shape: {
         options: betaMode ? AllShapeMapKeys : DefaultShapeMapKeys,
         value: shape,
-        onChange: (value) => setShape(value),
+        onChange: (value) => {
+          setShape(value);
+          setRandomize(0);
+        },
       },
-      randomize: {
-        label: <span title="randomizes fractal shapes">randomize</span>,
-        value: false,
-      },
+      "randomize shapes": button(() => {
+        setRandomize((prev) => prev + 1);
+      }),
       scale: {
         value: 1.0,
         min: 0.1,
@@ -121,7 +122,7 @@ const FractalCanvas = () => {
         value: betaMode,
         onChange: (value) => setBetaMode(value),
       },
-      ["reset scene"]: button(() => {
+      "reset scene": button(() => {
         setReset(true);
         handleCameraReset(dimension);
       }),
@@ -136,7 +137,8 @@ const FractalCanvas = () => {
     >
       <Canvas camera={{ position: [0, 0, dimension * ZOOM_FACTOR] }} shadows>
         <FractalCube
-          shape={parseShapeKey(shape)}
+          shape={shape}
+          betaMode={betaMode}
           randomize={randomize}
           initialScale={scale}
           size={dimension}
