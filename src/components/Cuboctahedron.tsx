@@ -1,6 +1,5 @@
 import { Edges } from "@react-three/drei";
 import { useControls } from "leva";
-import { Suspense } from "react";
 import { Mesh } from "three";
 import { useObj } from "../contexts/ObjContext";
 import { IShape } from "../types";
@@ -39,15 +38,13 @@ const Cuboctahedron = ({
       position={[x * scale, y * scale, z * scale]}
       rotation={[rotation.x, rotation.y, rotation.z]}
     >
-      <Suspense fallback={null}>
-        <primitive object={obj} />
-        <Edges
-          threshold={15}
-          geometry={geometry}
-          material={material}
-          visible={showEdges}
-        />
-      </Suspense>
+      <primitive object={obj} />
+      <Edges
+        threshold={15}
+        geometry={geometry}
+        material={material}
+        visible={showEdges}
+      />
     </group>
   );
 };
