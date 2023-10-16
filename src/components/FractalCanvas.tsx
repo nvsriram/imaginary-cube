@@ -45,6 +45,7 @@ const FractalCanvas = () => {
     "imaginary cube fractal controls",
     () => ({
       shape: {
+        label: <span title="controls base shape">shape</span>,
         options: betaMode ? AllShapeMapKeys : DefaultShapeMapKeys,
         value: shape,
         onChange: (value) => {
@@ -56,12 +57,18 @@ const FractalCanvas = () => {
         setRandomize((prev) => prev + 1);
       }),
       scale: {
+        label: <span title="controls shape scale">scale</span>,
         value: 1.0,
         min: 0.1,
         max: 1,
         step: 0.1,
       },
       dimension: {
+        label: (
+          <span title="controls dimension of underlying latin square">
+            dimension
+          </span>
+        ),
         value: dimension,
         min: 1,
         max: 10,
@@ -72,15 +79,20 @@ const FractalCanvas = () => {
         },
       },
       iterations: {
+        label: (
+          <span title="controls number of fractal iterations">iterations</span>
+        ),
         value: 0,
         min: 0,
         max: 3,
         step: 1,
       },
       color: {
+        label: <span title="controls shape color">color</span>,
         value: "cyan",
       },
       opacity: {
+        label: <span title="controls shape opacity">opacity</span>,
         value: 0.7,
         min: 0,
         max: 1,
@@ -152,7 +164,7 @@ const FractalCanvas = () => {
         />
         <Lights distance={dimension * ZOOM_FACTOR} />
         <Screens scale={dimension * 2} />
-        {showStats && (
+        {showStats && divRef && (
           <Stats
             parent={divRef as RefObject<HTMLDivElement>}
             className="!absolute"
