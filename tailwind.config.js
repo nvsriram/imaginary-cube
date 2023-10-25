@@ -19,6 +19,13 @@ export default {
         toolTipBackground: "#fefefe",
         toolTipText: "#181c20",
       },
+      keyframes: {
+        jumpingAnimation: {
+          "0%": { transform: "translate3d(0, 0, 0)" },
+          "50%": { transform: "translate3d(0, 3px, 0)" },
+          "100%": { transform: "translate3d(0, 0, 0)" },
+        },
+      },
       boxShadow: {
         level1: "0 0 9px 0 #00000088",
       },
