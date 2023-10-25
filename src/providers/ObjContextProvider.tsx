@@ -1,10 +1,11 @@
-import { ReactNode, useMemo, useState } from "react";
-import { Group, BufferGeometry, Mesh } from "three";
-import { ObjContext } from "./ObjContext";
 import { useLoader } from "@react-three/fiber";
+import { useMemo, useState } from "react";
+import { BufferGeometry, Group, Mesh } from "three";
 import { OBJLoader } from "three-stdlib";
+import { ObjContext } from "../contexts/ObjContext";
+import { IProvider } from "../types";
 
-const ObjContextProvider = ({ children }: { children: ReactNode }) => {
+const ObjContextProvider = ({ children }: IProvider) => {
   const obj: Group = useLoader(OBJLoader, "cuboctahedron.obj");
   const [geometry, setGeometry] = useState<BufferGeometry | null>(null);
 
