@@ -1,4 +1,4 @@
-import { FC } from "react";
+import { Dispatch, FC, ReactNode, SetStateAction } from "react";
 import { BufferGeometry, Group, Vector3 } from "three";
 import Cube from "../components/Cube";
 import Cuboctahedron from "../components/Cuboctahedron";
@@ -13,6 +13,15 @@ type CubePositions = Vector3[];
 type LatinSquare = number[][];
 
 // Context types
+interface IProvider {
+  children: ReactNode;
+}
+
+type PauseContextType = {
+  paused: boolean;
+  setPaused: Dispatch<SetStateAction<boolean>>;
+};
+
 type ObjContextType = {
   obj: Group;
   geometry: BufferGeometry | null;
@@ -20,10 +29,10 @@ type ObjContextType = {
 
 // Control types
 const ControlOptions = [
-  { keys: ["Click"], action: "start/stop rotation" },
-  { keys: ["Hover"], action: "slow down rotation" },
+  { keys: ["click"], action: "start/stop rotation" },
+  { keys: ["hover"], action: "slow down rotation" },
   { keys: ["p"], action: "open/close pause menu" },
-  { action: "Use the side panel to control the fractal cube" },
+  { action: "use the side panel to control the fractal cube" },
 ];
 
 // Shape component types
@@ -56,8 +65,10 @@ export { AllShapeMapKeys, ControlOptions, DefaultShapeMapKeys, ShapeMap };
 export type {
   CubeGrid,
   CubePositions,
+  IProvider,
   IShape,
   LatinSquare,
   ObjContextType,
+  PauseContextType,
   Shape,
 };
