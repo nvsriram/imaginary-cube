@@ -3,7 +3,7 @@ const Footer = () => {
     <footer className="container mx-auto mt-2 h-full w-full">
       <hr className="h-px w-full border-0 bg-elevation1" />
       <div className="mx-auto flex w-full flex-col items-center justify-between gap-2 px-4 py-5 sm:flex-row sm:gap-0">
-        <small className="text-xs text-highlight1 sm:text-sm">{`© ${new Date().getFullYear()} Imaginary Cube Visualizer. All Rights Reserved.`}</small>
+        <small className="text-xs text-highlight1 sm:text-sm">{`© ${new Date().getFullYear()} imaginary cube visualizer. all rights reserved.`}</small>
         <ul className="flex h-full w-full flex-wrap justify-center text-highlight1 sm:w-fit">
           <li className="pr-2">
             <a
