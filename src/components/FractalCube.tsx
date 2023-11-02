@@ -17,6 +17,7 @@ import {
   shouldFill,
 } from "../utils";
 import FractalShape from "./FractalShape";
+import { usePauseContext } from "../contexts/PauseContext";
 
 interface IFractalCube {
   shape: string;
@@ -73,6 +74,7 @@ const FractalCube = ({
       }),
     [color],
   );
+  const { paused } = usePauseContext();
   useFrame((_, delta) => {
     material.opacity = opacity;
 
@@ -93,7 +95,7 @@ const FractalCube = ({
         }
       }
       // rotate
-      else if (rotate) {
+      else if (rotate && !paused) {
         rotation.y += angle;
       }
     }
