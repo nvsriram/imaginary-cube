@@ -5,7 +5,7 @@ const IntroSection = () => {
         an{" "}
         <a
           href="https://www.i.h.kyoto-u.ac.jp/users/tsuiki/imaginarycube-e.html"
-          className="text-vivid1"
+          className="text-vivid1 underline underline-offset-4"
         >
           imaginary cube
         </a>{" "}
