@@ -4,8 +4,9 @@ const IntroSection = () => {
       <p className="w-full">
         an{" "}
         <a
-          href="https://www.i.h.kyoto-u.ac.jp/users/tsuiki/imaginarycube-e.html"
           className="text-vivid1 underline underline-offset-4"
+          href="https://www.i.h.kyoto-u.ac.jp/users/tsuiki/imaginarycube-e.html"
+          target="_blank"
         >
           imaginary cube
         </a>{" "}
