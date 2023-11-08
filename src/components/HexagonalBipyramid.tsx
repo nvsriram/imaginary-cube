@@ -46,12 +46,7 @@ const HexagonalBipyramid = ({
           castShadow
           receiveShadow
         >
-          <Edges
-            scale={initialScale}
-            threshold={15}
-            material={material}
-            visible={showEdges}
-          />
+          <Edges threshold={15} material={material} visible={showEdges} />
         </Cone>
       </group>
     </group>
