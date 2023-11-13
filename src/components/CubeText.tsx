@@ -15,7 +15,6 @@ const CubeText = ({ pos, scale, size, opacity }: ICubeText) => {
   return (
     <group>
       <Text
-        font="monospace"
         fontSize={0.5 * scale}
         position-z={0.501 * scale}
         fillOpacity={opacity}
@@ -23,7 +22,6 @@ const CubeText = ({ pos, scale, size, opacity }: ICubeText) => {
         {size - (z + half)}
       </Text>
       <Text
-        font="monospace"
         fontSize={0.5 * scale}
         position-z={-0.501 * scale}
         rotation={[Math.PI, 0, Math.PI]}
@@ -32,7 +30,6 @@ const CubeText = ({ pos, scale, size, opacity }: ICubeText) => {
         {z + half + 1}
       </Text>
       <Text
-        font="monospace"
         fontSize={0.5 * scale}
         position-x={0.501 * scale}
         rotation={[0, Math.PI / 2, 0]}
@@ -41,7 +38,6 @@ const CubeText = ({ pos, scale, size, opacity }: ICubeText) => {
         {size - (x + half)}
       </Text>
       <Text
-        font="monospace"
         fontSize={0.5 * scale}
         position-x={-0.501 * scale}
         rotation={[0, -Math.PI / 2, 0]}
@@ -50,7 +46,6 @@ const CubeText = ({ pos, scale, size, opacity }: ICubeText) => {
         {x + half + 1}
       </Text>
       <Text
-        font="monospace"
         fontSize={0.5 * scale}
         position-y={0.501 * scale}
         rotation={[-Math.PI / 2, 0, 0]}
@@ -59,7 +54,6 @@ const CubeText = ({ pos, scale, size, opacity }: ICubeText) => {
         {size - (y + half)}
       </Text>
       <Text
-        font="monospace"
         fontSize={0.5 * scale}
         position-y={-0.501 * scale}
         rotation={[Math.PI / 2, 0, 0]}
