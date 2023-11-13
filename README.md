@@ -20,3 +20,15 @@ A 3D visualizer of various imaginary cubes and their fractals.
 - Shape randomization support for inspiration
 - Pause screen with keyboard support in case you want to take a break
 - Experimental **_β_** shapes to try out the non-obvious imaginary cubes
+
+## 💻 Tech Stack
+
+- React-Typescript vite application with Tailwind CSS for styling
+- Leverages React Three Fiber and Drei for 3D rendering and scene controls
+- Utilizes Leva GUI for adding the imaginary cube fractal controls
+
+## 🧑‍💻 Getting Started
+
+1. Install the dependencies: `npm install`
+2. Run the development server: `npm run dev`
+3. Navigate to the server (defaults to http://localhost:5173)
