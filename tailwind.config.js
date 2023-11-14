@@ -14,6 +14,8 @@ export default {
         highlight2: "#8c92a4",
         highlight3: "#fefefe",
         vivid1: "#ffcc00",
+        vivid2: "#ffaa00",
+        vivid3: "#ff8800",
         folderWidgetColor: "#8c92a4",
         folderTextColor: "#fefefe",
         toolTipBackground: "#fefefe",
