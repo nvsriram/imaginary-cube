@@ -9,6 +9,7 @@ import {
   useState,
 } from "react";
 import * as THREE from "three";
+import { usePauseContext } from "../contexts/PauseContext";
 import {
   generateFractalCubeGrid,
   generateFractalCubePositions,
@@ -17,7 +18,6 @@ import {
   shouldFill,
 } from "../utils";
 import FractalShape from "./FractalShape";
-import { usePauseContext } from "../contexts/PauseContext";
 
 interface IFractalCube {
   shape: string;
