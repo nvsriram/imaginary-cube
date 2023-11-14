@@ -28,12 +28,29 @@ type ObjContextType = {
 };
 
 // Control types
-const ControlOptions = [
+const GlobalControlOptions = [
   { keys: ["click"], action: "start/stop rotation" },
   { keys: ["hover"], action: "slow down rotation" },
   { keys: ["p"], action: "open/close pause menu" },
   { action: "use the side panel to control the fractal cube" },
-];
+] as const;
+
+const SidePanelControls = [
+  "shape",
+  "scale",
+  "size",
+  "iterations",
+  "color",
+  "opacity",
+  "showText",
+  "showEdges",
+  "showAxes",
+  "showGrid",
+  "showStats",
+  "betaMode",
+] as const;
+type SidePanelControl = (typeof SidePanelControls)[number];
+type LoaderData = Record<SidePanelControl, string | boolean | number | null>;
 
 // Shape component types
 interface IShape {
@@ -61,14 +78,22 @@ const BetaShapeMapKeys = convertToBetaShape(
 );
 const AllShapeMapKeys = [...DefaultShapeMapKeys, ...BetaShapeMapKeys];
 
-export { AllShapeMapKeys, ControlOptions, DefaultShapeMapKeys, ShapeMap };
+export {
+  AllShapeMapKeys,
+  DefaultShapeMapKeys,
+  GlobalControlOptions,
+  ShapeMap,
+  SidePanelControls,
+};
 export type {
   CubeGrid,
   CubePositions,
   IProvider,
   IShape,
   LatinSquare,
+  LoaderData,
   ObjContextType,
   PauseContextType,
   Shape,
+  SidePanelControl,
 };
