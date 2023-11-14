@@ -23,7 +23,7 @@ const Pause = ({ children }: IPause) => {
   }, [paused]);
 
   useEffect(() => {
-    const timeout = setTimeout(() => setReady(progress === 100), 3000);
+    const timeout = setTimeout(() => setReady(progress === 100), 500);
     return () => clearTimeout(timeout);
   }, [progress]);
 
