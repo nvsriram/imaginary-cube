@@ -4,7 +4,7 @@ const IntroSection = () => {
       <p className="w-full">
         an{" "}
         <a
-          className="text-vivid1 underline underline-offset-4"
+          className="hover:text-vivid2 focus:text-vivid2 active:text-vivid3 text-vivid1 underline-offset-4 hover:underline focus:underline focus:outline-none active:underline"
           href="https://www.i.h.kyoto-u.ac.jp/users/tsuiki/imaginarycube-e.html"
           target="_blank"
         >
