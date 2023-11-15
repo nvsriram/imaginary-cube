@@ -1,10 +1,10 @@
-import { ControlOptions } from "../types";
+import { GlobalControlOptions } from "../types";
 import Kbd from "./Kbd";
 
 const Help = () => {
   return (
     <div className="flex flex-col items-center justify-center gap-2 text-highlight1">
-      {ControlOptions.map(({ keys, action }, idx) => (
+      {GlobalControlOptions.map(({ keys, action }, idx) => (
         <div
           key={idx}
           className="inline-flex h-full w-full flex-row items-center justify-between"
