@@ -33,7 +33,7 @@ const GlobalControlOptions = [
   { keys: ["hover"], action: "slow down rotation" },
   { keys: ["p"], action: "open/close pause menu" },
   { action: "use the side panel to control the fractal cube" },
-] as const;
+];
 
 const SidePanelControls = [
   "shape",
