@@ -11,7 +11,7 @@ A 3D visualizer of various imaginary cubes and their fractals.
 
 ## ✨ Key Features
 
-- GUI to extensively control all aspects of the cube fractal
+- GUI to extensively configure all aspects of the cube fractal
 - Fractal size and interation control
 - Shape rotation with speed control to view the shadows formed
 - Camera rotation to explore the fractals from different perspective
@@ -20,6 +20,7 @@ A 3D visualizer of various imaginary cubes and their fractals.
 - Shape randomization support for inspiration
 - Pause screen with keyboard support in case you want to take a break
 - Experimental **_β_** shapes to try out the non-obvious imaginary cubes
+- URL Search parameter support to easily share configurations
 
 ## 💻 Tech Stack
 
