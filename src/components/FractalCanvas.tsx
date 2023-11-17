@@ -1,16 +1,23 @@
 import { CameraControls, Stats } from "@react-three/drei";
 import { Canvas } from "@react-three/fiber";
 import { button, useControls } from "leva";
-import { RefObject, useCallback, useRef, useState } from "react";
+import { RefObject, useCallback, useEffect, useRef, useState } from "react";
+import { useSearchParams } from "react-router-dom";
 import { AllShapeMapKeys, DefaultShapeMapKeys } from "../types";
+import { deserializeControls, serializeControls } from "../utils";
 import FractalCube from "./FractalCube";
 import Lights from "./Lights";
 import Screens from "./Screens";
 
 const FractalCanvas = () => {
-  const [dimension, setDimension] = useState(1);
-  const [betaMode, setBetaMode] = useState(false);
-  const [shape, setShape] = useState("cube");
+  const [searchParams, setSearchParams] = useSearchParams();
+  const initial = deserializeControls(searchParams);
+
+  const [dimension, setDimension] = useState((initial.size ?? 1) as number);
+  const [betaMode, setBetaMode] = useState(
+    (initial.betaMode ?? false) as boolean,
+  );
+  const [shape, setShape] = useState((initial.shape ?? "cube") as string);
   const [reset, setReset] = useState(false);
   const [randomize, setRandomize] = useState(0);
 
@@ -29,19 +36,7 @@ const FractalCanvas = () => {
     [cameraControlRef],
   );
 
-  const [
-    {
-      scale,
-      iterations,
-      color,
-      opacity,
-      showText,
-      showEdges,
-      showAxes,
-      showGrid,
-      showStats,
-    },
-  ] = useControls(
+  const [controls] = useControls(
     "imaginary cube fractal controls",
     () => ({
       shape: {
@@ -58,7 +53,7 @@ const FractalCanvas = () => {
       }),
       scale: {
         label: <span title="controls shape scale">scale</span>,
-        value: 1.0,
+        value: (initial.scale ?? 1.0) as number,
         min: 0.1,
         max: 1,
         step: 0.1,
@@ -82,18 +77,18 @@ const FractalCanvas = () => {
         label: (
           <span title="controls number of fractal iterations">iterations</span>
         ),
-        value: 0,
+        value: (initial.size ?? 0) as number,
         min: 0,
         max: 3,
         step: 1,
       },
       color: {
         label: <span title="controls shape color">color</span>,
-        value: "cyan",
+        value: (initial.color ?? "cyan") as string,
       },
       opacity: {
         label: <span title="controls shape opacity">opacity</span>,
-        value: 0.7,
+        value: (initial.opacity ?? 0.7) as number,
         min: 0,
         max: 1,
         step: 0.1,
@@ -104,26 +99,26 @@ const FractalCanvas = () => {
             show text
           </span>
         ),
-        value: true,
+        value: (initial.showText ?? true) as boolean,
         disabled: shape != "cube",
       },
       showEdges: {
         label: (
           <span title="displays edge lines on top of shape">show edges</span>
         ),
-        value: true,
+        value: (initial.showEdges ?? true) as boolean,
       },
       showAxes: {
         label: <span title="shows xyz axes">show axes</span>,
-        value: false,
+        value: (initial.showAxes ?? false) as boolean,
       },
       showGrid: {
         label: <span title="shows xy plane grid">show grid</span>,
-        value: false,
+        value: (initial.showGrid ?? false) as boolean,
       },
       showStats: {
         label: <span title="shows stats on top left">show stats</span>,
-        value: true,
+        value: (initial.showStats ?? true) as boolean,
       },
       betaMode: {
         label: (
@@ -141,6 +136,23 @@ const FractalCanvas = () => {
     }),
     [betaMode, dimension, shape],
   );
+  const {
+    scale,
+    iterations,
+    color,
+    opacity,
+    showText,
+    showEdges,
+    showAxes,
+    showGrid,
+    showStats,
+  } = controls;
+
+  useEffect(() => {
+    const allControls = { shape, size: dimension, betaMode, ...controls };
+    const searchParams = new URLSearchParams(serializeControls(allControls));
+    setSearchParams(searchParams);
+  }, [controls, betaMode, dimension, shape, setSearchParams]);
 
   return (
     <div
