@@ -27,6 +27,7 @@ A 3D visualizer of various imaginary cubes and their fractals.
 - React-Typescript vite application with Tailwind CSS for styling
 - Leverages React Three Fiber and Drei for 3D rendering and scene controls
 - Utilizes Leva GUI for adding the imaginary cube fractal controls
+- URL state managed by React Router v6
 
 ## 🧑‍💻 Getting Started
 
