@@ -1,10 +1,10 @@
-const IntroSection = () => {
+export const IntroSection = () => {
   return (
     <section className="flex h-full w-full flex-col items-center justify-center gap-3 text-center font-normal text-folderWidgetColor sm:text-start">
       <p className="w-full">
         an{" "}
         <a
-          className="hover:text-vivid2 focus:text-vivid2 active:text-vivid3 text-vivid1 underline-offset-4 hover:underline focus:underline focus:outline-none active:underline"
+          className="text-vivid1 underline-offset-4 hover:text-vivid2 hover:underline focus:text-vivid2 focus:underline focus:outline-none active:text-vivid3 active:underline"
           href="https://www.i.h.kyoto-u.ac.jp/users/tsuiki/imaginarycube-e.html"
           target="_blank"
         >
@@ -20,5 +20,3 @@ const IntroSection = () => {
     </section>
   );
 };
-
-export default IntroSection;

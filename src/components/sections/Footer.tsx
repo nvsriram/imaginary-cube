@@ -1,4 +1,4 @@
-const Footer = () => {
+export const Footer = () => {
   return (
     <footer className="container mx-auto mt-2 h-full w-full">
       <hr className="h-px w-full border-0 bg-elevation1" />
@@ -80,5 +80,3 @@ const Footer = () => {
     </footer>
   );
 };
-
-export default Footer;

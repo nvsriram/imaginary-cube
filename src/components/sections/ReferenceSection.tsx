@@ -1,6 +1,6 @@
 import Shruggie from "../Shruggie";
 
-const ReferenceSection = () => {
+export const ReferenceSection = () => {
   return (
     <section className="flex h-full w-full flex-col items-center justify-center font-normal text-folderWidgetColor">
       <p className="w-full text-center sm:text-start">
@@ -26,5 +26,3 @@ const ReferenceSection = () => {
     </section>
   );
 };
-
-export default ReferenceSection;
