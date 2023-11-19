@@ -1,6 +1,6 @@
 import { Box, Edges } from "@react-three/drei";
-import { IShape } from "../types";
-import CubeText from "./CubeText";
+import { IShape } from "../../types";
+import CubeText from "../CubeText";
 
 export const Cube = ({
   pos,
