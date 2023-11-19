@@ -1,6 +1,6 @@
 import { Cone, Edges } from "@react-three/drei";
 import { useControls } from "leva";
-import { IShape } from "../../types";
+import { IShape } from "@/types";
 
 export const HexagonalBipyramid = ({
   pos,

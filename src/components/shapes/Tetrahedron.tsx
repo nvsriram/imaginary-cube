@@ -1,5 +1,5 @@
 import { Edges, Tetrahedron as TetrahedronDrei } from "@react-three/drei";
-import { IShape } from "../../types";
+import { IShape } from "@/types";
 
 export const Tetrahedron = ({
   pos,
