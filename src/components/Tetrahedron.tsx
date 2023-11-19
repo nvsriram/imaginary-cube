@@ -1,7 +1,7 @@
 import { Edges, Tetrahedron as TetrahedronDrei } from "@react-three/drei";
 import { IShape } from "../types";
 
-const Tetrahedron = ({
+export const Tetrahedron = ({
   pos,
   initialScale,
   scale,
@@ -22,5 +22,3 @@ const Tetrahedron = ({
     </TetrahedronDrei>
   );
 };
-
-export default Tetrahedron;

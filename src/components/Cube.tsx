@@ -2,7 +2,7 @@ import { Box, Edges } from "@react-three/drei";
 import { IShape } from "../types";
 import CubeText from "./CubeText";
 
-const Cube = ({
+export const Cube = ({
   pos,
   initialScale,
   scale,
@@ -34,5 +34,3 @@ const Cube = ({
     </Box>
   );
 };
-
-export default Cube;

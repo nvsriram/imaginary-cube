@@ -2,7 +2,7 @@ import { Cone, Edges } from "@react-three/drei";
 import { useControls } from "leva";
 import { IShape } from "../types";
 
-const HexagonalBipyramid = ({
+export const HexagonalBipyramid = ({
   pos,
   initialScale,
   scale,
@@ -52,5 +52,3 @@ const HexagonalBipyramid = ({
     </group>
   );
 };
-
-export default HexagonalBipyramid;

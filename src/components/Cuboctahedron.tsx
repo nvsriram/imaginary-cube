@@ -4,7 +4,7 @@ import { Mesh } from "three";
 import { useObj } from "../contexts/ObjContext";
 import { IShape } from "../types";
 
-const Cuboctahedron = ({
+export const Cuboctahedron = ({
   pos,
   initialScale,
   scale,
@@ -48,5 +48,3 @@ const Cuboctahedron = ({
     </group>
   );
 };
-
-export default Cuboctahedron;

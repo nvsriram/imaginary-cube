@@ -2,7 +2,7 @@ import { Edges, Octahedron as OctahedronDrei } from "@react-three/drei";
 import { useControls } from "leva";
 import { IShape } from "../types";
 
-const Octahedron = ({
+export const Octahedron = ({
   pos,
   initialScale,
   scale,
@@ -31,5 +31,3 @@ const Octahedron = ({
     </OctahedronDrei>
   );
 };
-
-export default Octahedron;
