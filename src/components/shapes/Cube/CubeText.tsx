@@ -1,14 +1,14 @@
 import { Text } from "@react-three/drei";
 import { Vector3 } from "three";
 
-interface ICubeText {
+export interface ICubeText {
   pos: Vector3;
   scale: number;
   size: number;
   opacity: number;
 }
 
-const CubeText = ({ pos, scale, size, opacity }: ICubeText) => {
+export const CubeText = ({ pos, scale, size, opacity }: ICubeText) => {
   const { x, y, z } = pos;
   const half = (size - 1) / 2;
 
