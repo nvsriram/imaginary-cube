@@ -3,13 +3,13 @@ import { Canvas } from "@react-three/fiber";
 import { button, useControls } from "leva";
 import { RefObject, useCallback, useEffect, useRef, useState } from "react";
 import { useSearchParams } from "react-router-dom";
-import { AllShapeMapKeys, DefaultShapeMapKeys } from "../types";
-import { deserializeControls, serializeControls } from "../utils";
-import FractalCube from "./FractalCube";
-import Lights from "./Lights";
-import Screens from "./Screens";
+import { AllShapeMapKeys, DefaultShapeMapKeys } from "@/types";
+import { deserializeControls, serializeControls } from "@/utils";
+import { FractalCube } from "./FractalCube";
+import Lights from "../Lights";
+import Screens from "../Screens";
 
-const FractalCanvas = () => {
+export const FractalCanvas = () => {
   const [searchParams, setSearchParams] = useSearchParams();
   const initial = deserializeControls(searchParams);
 
@@ -189,5 +189,3 @@ const FractalCanvas = () => {
     </div>
   );
 };
-
-export default FractalCanvas;

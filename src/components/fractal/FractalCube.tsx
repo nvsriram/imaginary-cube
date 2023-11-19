@@ -9,17 +9,17 @@ import {
   useState,
 } from "react";
 import * as THREE from "three";
-import { usePauseContext } from "../contexts/PauseContext";
+import { usePauseContext } from "@/contexts/PauseContext";
 import {
   generateFractalCubeGrid,
   generateFractalCubePositions,
   generateFractalLatinSquare,
   populateCubeGrid,
   shouldFill,
-} from "../utils";
-import FractalShape from "./FractalShape";
+} from "@/utils";
+import { FractalShape } from "./FractalShape";
 
-interface IFractalCube {
+export interface IFractalCube {
   shape: string;
   betaMode: boolean;
   randomize: number;
@@ -34,7 +34,7 @@ interface IFractalCube {
   setReset: Dispatch<SetStateAction<boolean>>;
 }
 
-const FractalCube = ({
+export const FractalCube = ({
   shape,
   betaMode,
   randomize,
@@ -145,5 +145,3 @@ const FractalCube = ({
     </group>
   );
 };
-
-export default FractalCube;

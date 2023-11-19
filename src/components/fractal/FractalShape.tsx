@@ -1,14 +1,14 @@
 import { useMemo } from "react";
-import { IShape } from "../types";
-import { getShape } from "../utils";
+import { IShape } from "@/types";
+import { getShape } from "@/utils";
 
-interface IFractalShape extends IShape {
+export interface IFractalShape extends IShape {
   shape: string;
   betaMode: boolean;
   randomize: number;
 }
 
-const FractalShape = ({
+export const FractalShape = ({
   shape: key,
   betaMode,
   randomize,
@@ -43,5 +43,3 @@ const FractalShape = ({
     />
   );
 };
-
-export default FractalShape;
