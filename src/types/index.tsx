@@ -1,11 +1,13 @@
 import { Dispatch, FC, ReactNode, SetStateAction } from "react";
 import { BufferGeometry, Group, Vector3 } from "three";
-import Cube from "../components/Cube";
-import Cuboctahedron from "../components/Cuboctahedron";
-import HexagonalBipyramid from "../components/HexagonalBipyramid";
-import Octahedron from "../components/Octahedron";
-import Tetrahedron from "../components/Tetrahedron";
-import { convertToBetaShape } from "../utils";
+import {
+  Cube,
+  Cuboctahedron,
+  HexagonalBipyramid,
+  Octahedron,
+  Tetrahedron,
+} from "@/components/shapes";
+import { convertToBetaShape } from "@/utils";
 
 // Base types
 type CubeGrid = boolean[][][];
