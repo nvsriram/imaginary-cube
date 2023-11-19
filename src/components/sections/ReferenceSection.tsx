@@ -1,4 +1,4 @@
-import Shruggie from "./Shruggie";
+import Shruggie from "../Shruggie";
 
 const ReferenceSection = () => {
   return (
