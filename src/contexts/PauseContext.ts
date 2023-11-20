@@ -1,9 +1,9 @@
+import { PauseContextType } from "@/types";
 import { createContext, useContext } from "react";
-import { PauseContextType } from "../types";
 
-const PauseContext = createContext<PauseContextType | null>(null);
+export const PauseContext = createContext<PauseContextType | null>(null);
 
-const usePauseContext = () => {
+export const usePauseContext = () => {
   const context = useContext(PauseContext);
 
   if (!context) {
@@ -11,5 +11,3 @@ const usePauseContext = () => {
   }
   return context;
 };
-
-export { PauseContext, usePauseContext };

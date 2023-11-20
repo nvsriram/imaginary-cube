@@ -1,9 +1,9 @@
 import { createContext, useContext } from "react";
-import { ObjContextType } from "../types";
+import { ObjContextType } from "@/types";
 
-const ObjContext = createContext<ObjContextType | null>(null);
+export const ObjContext = createContext<ObjContextType | null>(null);
 
-const useObj = () => {
+export const useObj = () => {
   const context = useContext(ObjContext);
 
   if (!context) {
@@ -11,5 +11,3 @@ const useObj = () => {
   }
   return context;
 };
-
-export { ObjContext, useObj };
