@@ -1,4 +1,4 @@
-import Shruggie from "../Shruggie";
+import { Shruggie } from "../ui";
 
 export const ReferenceSection = () => {
   return (
