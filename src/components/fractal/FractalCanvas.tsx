@@ -1,13 +1,12 @@
+import { AllShapeMapKeys, DefaultShapeMapKeys } from "@/types";
+import { deserializeControls, serializeControls } from "@/utils";
 import { CameraControls, Stats } from "@react-three/drei";
 import { Canvas } from "@react-three/fiber";
 import { button, useControls } from "leva";
 import { RefObject, useCallback, useEffect, useRef, useState } from "react";
 import { useSearchParams } from "react-router-dom";
-import { AllShapeMapKeys, DefaultShapeMapKeys } from "@/types";
-import { deserializeControls, serializeControls } from "@/utils";
+import { Lights, Screens } from "../canvas";
 import { FractalCube } from "./FractalCube";
-import Lights from "../Lights";
-import Screens from "../Screens";
 
 export const FractalCanvas = () => {
   const [searchParams, setSearchParams] = useSearchParams();
