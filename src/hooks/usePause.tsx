@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { usePauseContext } from "../contexts/PauseContext";
 
-const usePause = (pauseCode = "KeyP") => {
+export const usePause = (pauseCode = "KeyP") => {
   const { paused, setPaused } = usePauseContext();
 
   useEffect(() => {
@@ -20,5 +20,3 @@ const usePause = (pauseCode = "KeyP") => {
 
   return { paused, setPaused };
 };
-
-export default usePause;
