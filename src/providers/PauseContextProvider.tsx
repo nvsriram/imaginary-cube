@@ -1,8 +1,8 @@
 import { useState } from "react";
-import { PauseContext } from "../contexts/PauseContext";
-import { IProvider } from "../types";
+import { PauseContext } from "../contexts";
+import { IProvider } from "@/types";
 
-const PauseContextProvider = ({ children }: IProvider) => {
+export const PauseContextProvider = ({ children }: IProvider) => {
   const [paused, setPaused] = useState(true);
 
   return (
@@ -11,5 +11,3 @@ const PauseContextProvider = ({ children }: IProvider) => {
     </PauseContext.Provider>
   );
 };
-
-export default PauseContextProvider;
