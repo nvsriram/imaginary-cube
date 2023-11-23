@@ -1,7 +1,7 @@
-import { GlobalControlOptions } from "../types";
-import Kbd from "./Kbd";
+import { GlobalControlOptions } from "../../types";
+import { Kbd } from "./Kbd";
 
-const Help = () => {
+export const Help = () => {
   return (
     <div className="flex flex-col items-center justify-center gap-2 text-highlight1">
       {GlobalControlOptions.map(({ keys, action }, idx) => (
@@ -16,5 +16,3 @@ const Help = () => {
     </div>
   );
 };
-
-export default Help;
