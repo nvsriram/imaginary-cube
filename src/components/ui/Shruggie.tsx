@@ -1,4 +1,4 @@
-const Shruggie = () => {
+export const Shruggie = () => {
   return (
     <>
       <span className="text-vivid1">¯\_</span>
@@ -9,5 +9,3 @@ const Shruggie = () => {
     </>
   );
 };
-
-export default Shruggie;
