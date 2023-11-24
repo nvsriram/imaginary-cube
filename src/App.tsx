@@ -3,9 +3,10 @@ import {
   FractalCanvasSection,
   IntroSection,
   Navbar,
+  Pause,
+  Provider,
   ReferenceSection,
-} from "./components/sections";
-import { Pause, Provider } from "./components/wrappers";
+} from "./components";
 
 const App = () => {
   return (
