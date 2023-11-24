@@ -6,7 +6,7 @@ import {
   Pause,
   Provider,
   ReferenceSection,
-} from "./components";
+} from "@/components";
 
 const App = () => {
   return (

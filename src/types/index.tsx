@@ -4,7 +4,7 @@ import {
   HexagonalBipyramid,
   Octahedron,
   Tetrahedron,
-} from "@/components/shapes";
+} from "@/components";
 import { convertToBetaShape } from "@/utils";
 import { Dispatch, FC, ReactNode, SetStateAction } from "react";
 import { BufferGeometry, Group, Vector3 } from "three";
