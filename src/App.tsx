@@ -1,10 +1,11 @@
-import Footer from "./components/Footer";
-import FractalCanvasSection from "./components/FractalCanvasSection";
-import IntroSection from "./components/IntroSection";
-import Navbar from "./components/Navbar";
-import Pause from "./components/Pause";
-import ReferenceSection from "./components/ReferenceSection";
-import Provider from "./providers/Provider";
+import {
+  Footer,
+  FractalCanvasSection,
+  IntroSection,
+  Navbar,
+  ReferenceSection,
+} from "./components/sections";
+import { Pause, Provider } from "./components/wrappers";
 
 const App = () => {
   return (
