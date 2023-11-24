@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { PauseContext } from "../contexts";
+import { PauseContext } from "@/contexts";
 import { IProvider } from "@/types";
 
 export const PauseContextProvider = ({ children }: IProvider) => {

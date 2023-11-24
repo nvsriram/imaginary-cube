@@ -3,7 +3,7 @@ import { useLoader } from "@react-three/fiber";
 import { useMemo, useState } from "react";
 import { BufferGeometry, Group, Mesh } from "three";
 import { OBJLoader } from "three-stdlib";
-import { ObjContext } from "../contexts/ObjContext";
+import { ObjContext } from "@/contexts";
 
 export const ObjContextProvider = ({ children }: IProvider) => {
   const obj: Group = useLoader(OBJLoader, "cuboctahedron.obj");
