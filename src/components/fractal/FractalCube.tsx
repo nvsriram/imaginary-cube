@@ -1,3 +1,11 @@
+import { usePauseContext } from "@/contexts";
+import {
+  generateFractalCubeGrid,
+  generateFractalCubePositions,
+  generateFractalLatinSquare,
+  populateCubeGrid,
+  shouldFill,
+} from "@/utils";
 import { useCursor } from "@react-three/drei";
 import { useFrame } from "@react-three/fiber";
 import {
@@ -9,14 +17,6 @@ import {
   useState,
 } from "react";
 import * as THREE from "three";
-import { usePauseContext } from "@/contexts/PauseContext";
-import {
-  generateFractalCubeGrid,
-  generateFractalCubePositions,
-  generateFractalLatinSquare,
-  populateCubeGrid,
-  shouldFill,
-} from "@/utils";
 import { FractalShape } from "./FractalShape";
 
 export interface IFractalCube {

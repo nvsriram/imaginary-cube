@@ -1,4 +1,4 @@
-import { GlobalControlOptions } from "../../types";
+import { GlobalControlOptions } from "@/types";
 import { Kbd } from "./Kbd";
 
 export const Help = () => {

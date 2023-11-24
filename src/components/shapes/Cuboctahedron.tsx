@@ -1,7 +1,7 @@
 import { Edges } from "@react-three/drei";
 import { useControls } from "leva";
 import { Mesh } from "three";
-import { useObj } from "@/contexts/ObjContext";
+import { useObj } from "@/contexts";
 import { IShape } from "@/types";
 
 export const Cuboctahedron = ({

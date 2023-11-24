@@ -1,5 +1,5 @@
-import Logo from "../assets/logo.svg";
-import { usePauseContext } from "../../contexts/PauseContext";
+import Logo from "@/assets/logo.svg";
+import { usePauseContext } from "@/contexts";
 
 export const Navbar = () => {
   const { paused } = usePauseContext();

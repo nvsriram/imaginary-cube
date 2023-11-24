@@ -1,4 +1,4 @@
-import { ObjContextProvider, PauseContextProvider } from "@/providers";
+import { PauseContextProvider, ObjContextProvider } from "@/providers";
 import { IProvider } from "@/types";
 
 export const Provider = ({ children }: IProvider) => {
