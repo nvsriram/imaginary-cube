@@ -1,4 +1,4 @@
-import { AllShapeMapKeys, DefaultShapeMapKeys, ShapeMap } from "../types";
+import { AllShapeMapKeys, DefaultShapeMapKeys, ShapeMap } from "@/types";
 
 const BETA_SUFFIX = " *";
 

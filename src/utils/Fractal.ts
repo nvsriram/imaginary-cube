@@ -1,4 +1,4 @@
-import { LatinSquare } from "../types";
+import { LatinSquare } from "@/types";
 import { generateCubeGrid, generateCubePositions } from "./CubeGrid";
 import { generateLatinSquare } from "./LatinSquare";
 

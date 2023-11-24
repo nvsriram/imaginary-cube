@@ -1,5 +1,5 @@
 import { Vector3 } from "three";
-import { CubeGrid, CubePositions } from "../types";
+import { CubeGrid, CubePositions } from "@/types";
 
 const shouldFill = (pos: Vector3, grid: CubeGrid) => {
   const size = grid.length;
