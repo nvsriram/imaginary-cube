@@ -10,5 +10,5 @@ export interface IScreen {
 }
 
 export const Screen = ({ scale, ...props }: IScreen) => (
-  <Plane args={[scale, scale]} receiveShadow {...props} />
+  <Plane receiveShadow args={[scale, scale]} {...props} />
 );
