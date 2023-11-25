@@ -1,4 +1,5 @@
 import { useEffect } from "react";
+
 import { usePauseContext } from "@/contexts";
 
 export const usePause = (pauseCode = "KeyP") => {
