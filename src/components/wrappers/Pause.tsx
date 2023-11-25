@@ -1,7 +1,9 @@
-import { usePause } from "@/hooks";
 import { useProgress } from "@react-three/drei";
 import { ReactNode, Suspense, useEffect, useMemo, useState } from "react";
+
 import { Help, Kbd, Ready, WaitingAnimation } from "../ui";
+
+import { usePause } from "@/hooks";
 
 export interface IPause {
   children: ReactNode;
