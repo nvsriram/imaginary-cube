@@ -4,11 +4,11 @@ export interface ILights {
 
 export const Lights = ({ distance }: ILights) => (
   <group>
-    <directionalLight position={[-distance, 0, 0]} castShadow />
-    <directionalLight position={[0, -distance, 0]} castShadow />
-    <directionalLight position={[0, 0, -distance]} castShadow />
-    <directionalLight position={[distance, 0, 0]} castShadow />
-    <directionalLight position={[0, distance, 0]} castShadow />
-    <directionalLight position={[0, 0, distance]} castShadow />
+    <directionalLight castShadow position={[-distance, 0, 0]} />
+    <directionalLight castShadow position={[0, -distance, 0]} />
+    <directionalLight castShadow position={[0, 0, -distance]} />
+    <directionalLight castShadow position={[distance, 0, 0]} />
+    <directionalLight castShadow position={[0, distance, 0]} />
+    <directionalLight castShadow position={[0, 0, distance]} />
   </group>
 );
