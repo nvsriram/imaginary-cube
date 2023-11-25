@@ -1,4 +1,5 @@
 import { useMemo } from "react";
+
 import { IShape } from "@/types";
 import { getShape } from "@/utils";
 
@@ -32,14 +33,14 @@ export const FractalShape = ({
   }
   return (
     <Shape
-      pos={pos}
       initialScale={initialScale}
-      scale={scale}
-      size={size}
       material={material}
       opacity={opacity}
-      showText={showText}
+      pos={pos}
+      scale={scale}
       showEdges={showEdges}
+      showText={showText}
+      size={size}
     />
   );
 };

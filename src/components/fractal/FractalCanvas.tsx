@@ -1,12 +1,15 @@
-import { AllShapeMapKeys, DefaultShapeMapKeys } from "@/types";
-import { deserializeControls, serializeControls } from "@/utils";
 import { CameraControls, Stats } from "@react-three/drei";
 import { Canvas } from "@react-three/fiber";
 import { button, useControls } from "leva";
 import { RefObject, useCallback, useEffect, useRef, useState } from "react";
 import { useSearchParams } from "react-router-dom";
+
 import { Lights, Screens } from "../canvas";
+
 import { FractalCube } from "./FractalCube";
+
+import { AllShapeMapKeys, DefaultShapeMapKeys } from "@/types";
+import { deserializeControls, serializeControls } from "@/utils";
 
 export const FractalCanvas = () => {
   const [searchParams, setSearchParams] = useSearchParams();
@@ -155,30 +158,30 @@ export const FractalCanvas = () => {
 
   return (
     <div
-      className="relative h-52 max-h-[208px] w-full grow rounded-lg bg-elevation1 shadow-level1 md:h-80 md:max-h-[288px] xl:h-96 xl:max-h-[384px]"
       ref={divRef}
+      className="relative h-52 max-h-[208px] w-full grow rounded-lg bg-elevation1 shadow-level1 md:h-80 md:max-h-[288px] xl:h-96 xl:max-h-[384px]"
     >
-      <Canvas camera={{ position: [0, 0, dimension * ZOOM_FACTOR] }} shadows>
+      <Canvas shadows camera={{ position: [0, 0, dimension * ZOOM_FACTOR] }}>
         <FractalCube
-          shape={shape}
           betaMode={betaMode}
-          randomize={randomize}
-          initialScale={scale}
-          size={dimension}
-          iterations={iterations}
           color={color}
+          initialScale={scale}
+          iterations={iterations}
           opacity={opacity}
-          showText={showText}
-          showEdges={showEdges}
+          randomize={randomize}
           reset={reset}
           setReset={setReset}
+          shape={shape}
+          showEdges={showEdges}
+          showText={showText}
+          size={dimension}
         />
         <Lights distance={dimension * ZOOM_FACTOR} />
         <Screens scale={dimension * 2} />
         {showStats && divRef && (
           <Stats
-            parent={divRef as RefObject<HTMLDivElement>}
             className="!absolute"
+            parent={divRef as RefObject<HTMLDivElement>}
           />
         )}
         <CameraControls ref={cameraControlRef} />

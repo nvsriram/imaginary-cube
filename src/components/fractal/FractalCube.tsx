@@ -1,11 +1,3 @@
-import { usePauseContext } from "@/contexts";
-import {
-  generateFractalCubeGrid,
-  generateFractalCubePositions,
-  generateFractalLatinSquare,
-  populateCubeGrid,
-  shouldFill,
-} from "@/utils";
 import { useCursor } from "@react-three/drei";
 import { useFrame } from "@react-three/fiber";
 import {
@@ -17,7 +9,17 @@ import {
   useState,
 } from "react";
 import * as THREE from "three";
+
 import { FractalShape } from "./FractalShape";
+
+import { usePauseContext } from "@/contexts";
+import {
+  generateFractalCubeGrid,
+  generateFractalCubePositions,
+  generateFractalLatinSquare,
+  populateCubeGrid,
+  shouldFill,
+} from "@/utils";
 
 export interface IFractalCube {
   shape: string;
@@ -120,25 +122,25 @@ export const FractalCube = ({
   return (
     <group
       ref={groupRef}
+      onPointerDown={() => setRotate((prev) => !prev)}
       onPointerEnter={() => setHovered(true)}
       onPointerLeave={() => setHovered(false)}
-      onPointerDown={() => setRotate((prev) => !prev)}
     >
       {cubePositions.map((pos, idx) => {
         return (
           <FractalShape
             key={idx}
-            shape={shape}
             betaMode={betaMode}
-            randomize={randomize}
-            pos={pos}
             initialScale={initialScale}
-            scale={scale}
-            size={size}
             material={material}
             opacity={opacity}
-            showText={showText}
+            pos={pos}
+            randomize={randomize}
+            scale={scale}
+            shape={shape}
             showEdges={showEdges}
+            showText={showText}
+            size={size}
           />
         );
       })}
