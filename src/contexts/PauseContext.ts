@@ -1,5 +1,6 @@
-import { PauseContextType } from "@/types";
 import { createContext, useContext } from "react";
+
+import { PauseContextType } from "@/types";
 
 export const PauseContext = createContext<PauseContextType | null>(null);
 

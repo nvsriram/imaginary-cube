@@ -1,5 +1,6 @@
-import { ObjContextType } from "@/types";
 import { createContext, useContext } from "react";
+
+import { ObjContextType } from "@/types";
 
 export const ObjContext = createContext<ObjContextType | null>(null);
 
