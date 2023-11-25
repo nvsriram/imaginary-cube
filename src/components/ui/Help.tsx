@@ -1,5 +1,6 @@
-import { GlobalControlOptions } from "@/types";
 import { Kbd } from "./Kbd";
+
+import { GlobalControlOptions } from "@/types";
 
 export const Help = () => {
   return (
@@ -10,7 +11,7 @@ export const Help = () => {
           className="inline-flex h-full w-full flex-row items-center justify-between"
         >
           <span>{action}</span>
-          <div>{keys?.map((key, idx) => <Kbd text={key} key={idx} />)}</div>
+          <div>{keys?.map((key, idx) => <Kbd key={idx} text={key} />)}</div>
         </div>
       ))}
     </div>
