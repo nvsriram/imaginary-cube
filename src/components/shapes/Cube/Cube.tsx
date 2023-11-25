@@ -1,6 +1,8 @@
 import { Box, Edges } from "@react-three/drei";
-import { IShape } from "@/types";
+
 import CubeText from "./CubeText";
+
+import { IShape } from "@/types";
 
 export const Cube = ({
   pos,
@@ -16,21 +18,21 @@ export const Cube = ({
 
   return (
     <Box
-      args={[initialScale * scale, initialScale * scale, initialScale * scale]}
-      position={[x * scale, y * scale, z * scale]}
-      material={material}
       castShadow
       receiveShadow
+      args={[initialScale * scale, initialScale * scale, initialScale * scale]}
+      material={material}
+      position={[x * scale, y * scale, z * scale]}
     >
       {showText && (
         <CubeText
+          opacity={opacity}
           pos={pos}
           scale={scale * initialScale}
           size={size / scale}
-          opacity={opacity}
         />
       )}
-      <Edges threshold={15} material={material} visible={showEdges} />
+      <Edges material={material} threshold={15} visible={showEdges} />
     </Box>
   );
 };

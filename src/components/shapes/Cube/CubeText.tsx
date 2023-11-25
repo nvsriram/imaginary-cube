@@ -15,49 +15,49 @@ export const CubeText = ({ pos, scale, size, opacity }: ICubeText) => {
   return (
     <group>
       <Text
+        fillOpacity={opacity}
         fontSize={0.5 * scale}
         position-z={0.501 * scale}
-        fillOpacity={opacity}
       >
         {size - (z + half)}
       </Text>
       <Text
+        fillOpacity={opacity}
         fontSize={0.5 * scale}
         position-z={-0.501 * scale}
         rotation={[Math.PI, 0, Math.PI]}
-        fillOpacity={opacity}
       >
         {z + half + 1}
       </Text>
       <Text
+        fillOpacity={opacity}
         fontSize={0.5 * scale}
         position-x={0.501 * scale}
         rotation={[0, Math.PI / 2, 0]}
-        fillOpacity={opacity}
       >
         {size - (x + half)}
       </Text>
       <Text
+        fillOpacity={opacity}
         fontSize={0.5 * scale}
         position-x={-0.501 * scale}
         rotation={[0, -Math.PI / 2, 0]}
-        fillOpacity={opacity}
       >
         {x + half + 1}
       </Text>
       <Text
+        fillOpacity={opacity}
         fontSize={0.5 * scale}
         position-y={0.501 * scale}
         rotation={[-Math.PI / 2, 0, 0]}
-        fillOpacity={opacity}
       >
         {size - (y + half)}
       </Text>
       <Text
+        fillOpacity={opacity}
         fontSize={0.5 * scale}
         position-y={-0.501 * scale}
         rotation={[Math.PI / 2, 0, 0]}
-        fillOpacity={opacity}
       >
         {y + half + 1}
       </Text>
