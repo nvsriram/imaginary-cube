@@ -1,6 +1,7 @@
-import { LatinSquare } from "@/types";
 import { generateCubeGrid, generateCubePositions } from "./CubeGrid";
 import { generateLatinSquare } from "./LatinSquare";
+
+import { LatinSquare } from "@/types";
 
 const generateFractalLatinSquare = (size: number, iteration = 0) => {
   let lsquare = generateLatinSquare(size);
