@@ -1,5 +1,6 @@
 import { Cone, Edges } from "@react-three/drei";
 import { useControls } from "leva";
+
 import { IShape } from "@/types";
 
 export const HexagonalBipyramid = ({
@@ -29,24 +30,24 @@ export const HexagonalBipyramid = ({
         ]}
       >
         <Cone
+          castShadow
+          receiveShadow
           args={[1, 1, 6, 1, true]}
           material={material}
           position={[x, y + 0.5, z]}
           rotation-x={0}
-          castShadow
-          receiveShadow
         >
-          <Edges threshold={15} material={material} visible={showEdges} />
+          <Edges material={material} threshold={15} visible={showEdges} />
         </Cone>
         <Cone
+          castShadow
+          receiveShadow
           args={[1, 1, 6, 1, true]}
           material={material}
           position={[x, y - 0.5, z]}
           rotation-z={Math.PI}
-          castShadow
-          receiveShadow
         >
-          <Edges threshold={15} material={material} visible={showEdges} />
+          <Edges material={material} threshold={15} visible={showEdges} />
         </Cone>
       </group>
     </group>

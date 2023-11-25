@@ -1,6 +1,7 @@
 import { Edges } from "@react-three/drei";
 import { useControls } from "leva";
 import { Mesh } from "three";
+
 import { useObj } from "@/contexts";
 import { IShape } from "@/types";
 
@@ -34,15 +35,15 @@ export const Cuboctahedron = ({
 
   return (
     <group
-      scale={[initialScale * scale, initialScale * scale, initialScale * scale]}
       position={[x * scale, y * scale, z * scale]}
       rotation={[rotation.x, rotation.y, rotation.z]}
+      scale={[initialScale * scale, initialScale * scale, initialScale * scale]}
     >
       <primitive object={obj} />
       <Edges
-        threshold={15}
         geometry={geometry}
         material={material}
+        threshold={15}
         visible={showEdges}
       />
     </group>
