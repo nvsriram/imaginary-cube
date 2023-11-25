@@ -1,4 +1,5 @@
 import { useState } from "react";
+
 import { PauseContext } from "@/contexts";
 import { IProvider } from "@/types";
 
