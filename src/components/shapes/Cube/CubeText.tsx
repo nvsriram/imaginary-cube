@@ -64,5 +64,3 @@ export const CubeText = ({ pos, scale, size, opacity }: ICubeText) => {
     </group>
   );
 };
-
-export default CubeText;
