@@ -1,5 +1,6 @@
 import { useMemo } from "react";
 
+import { ShapeMap } from "@/constants";
 import { IShape } from "@/types";
 import { getShape } from "@/utils";
 
@@ -24,7 +25,7 @@ export const FractalShape = ({
 }: IFractalShape) => {
   // handle shape
   const Shape = useMemo(
-    () => getShape(randomize === 0 ? key : undefined, betaMode),
+    () => getShape(ShapeMap, randomize === 0 ? key : undefined, betaMode),
     [randomize, key, betaMode],
   );
 
