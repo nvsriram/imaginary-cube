@@ -1,6 +1,6 @@
 import { Box, Edges } from "@react-three/drei";
 
-import CubeText from "./CubeText";
+import { CubeText } from "./CubeText";
 
 import { IShape } from "@/types";
 
