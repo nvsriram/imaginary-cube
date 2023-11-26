@@ -1,4 +1,5 @@
-import { AllShapeMapKeys, DefaultShapeMapKeys, ShapeMap } from "@/types";
+import { AllShapeMapKeys, DefaultShapeMapKeys } from "@/constants";
+import { ShapeMap } from "@/types";
 
 const BETA_SUFFIX = " *";
 
@@ -7,18 +8,22 @@ const convertToBetaShape = (shapes: string[]) =>
 
 const parseShapeKey = (key: string) => key.replace(BETA_SUFFIX, "");
 
-const getRandomShape = (isBeta: boolean) => {
+const getRandomShape = (ShapeMap: ShapeMap, isBeta: boolean) => {
   const keys = isBeta ? AllShapeMapKeys : DefaultShapeMapKeys;
   return ShapeMap.get(
     parseShapeKey(keys[Math.floor(Math.random() * keys.length)]),
   );
 };
 
-const getShape = (key: string | undefined, isBeta: boolean) => {
+const getShape = (
+  ShapeMap: ShapeMap,
+  key: string | undefined,
+  isBeta: boolean,
+) => {
   if (key) {
     return ShapeMap.get(parseShapeKey(key));
   }
-  return getRandomShape(isBeta);
+  return getRandomShape(ShapeMap, isBeta);
 };
 
 export { convertToBetaShape, getShape };
