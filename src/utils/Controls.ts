@@ -1,4 +1,5 @@
-import { LoaderData, SidePanelControl, SidePanelControls } from "@/types";
+import { SidePanelControls } from "@/constants";
+import { LoaderData, SidePanelControl } from "@/types";
 
 const deserializeControls = (searchParams: URLSearchParams): LoaderData => {
   const newControls = {} as LoaderData;
