@@ -1,6 +1,6 @@
 import { Kbd } from "./Kbd";
 
-import { GlobalControlOptions } from "@/types";
+import { GlobalControlOptions } from "@/constants";
 
 export const Help = () => {
   return (
