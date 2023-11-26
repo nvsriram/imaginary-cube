@@ -8,7 +8,7 @@ import { Lights, Screens } from "../canvas";
 
 import { FractalCube } from "./FractalCube";
 
-import { AllShapeMapKeys, DefaultShapeMapKeys } from "@/types";
+import { AllShapeMapKeys, DefaultShapeMapKeys } from "@/constants";
 import { deserializeControls, serializeControls } from "@/utils";
 
 export const FractalCanvas = () => {
