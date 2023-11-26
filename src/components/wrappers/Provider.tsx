@@ -8,5 +8,3 @@ export const Provider = ({ children }: IProvider) => {
     </PauseContextProvider>
   );
 };
-
-export default Provider;
