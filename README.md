@@ -1,4 +1,4 @@
-# Imaginary Cube
+![banner](https://github.com/nvsriram/imaginary-cube/assets/50625504/a55895e3-95e9-42b4-b18d-e97cbe978b0a)
 
 A 3D visualizer of various imaginary cubes and their fractals.
 
