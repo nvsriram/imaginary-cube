@@ -9,6 +9,10 @@ A 3D visualizer of various imaginary cubes and their fractals.
 - This got me thinking: what if I could visualize this without having to 3D print it?
 - This idea, coupled with my recent interest in three.js, got me reading [more](https://www.i.h.kyoto-u.ac.jp/users/tsuiki/imaginarycube-e.html) on the subject, figuring out what shapes work and how they could be rotated to work, until eventually deciding to make my own visualizer for the same.
 
+## 🚀 Demo
+
+https://github.com/nvsriram/imaginary-cube/assets/50625504/99e77efd-71ae-4c1d-96a8-ad61fdb0ffe2
+
 ## ✨ Key Features
 
 - GUI to extensively configure all aspects of the cube fractal
