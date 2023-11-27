@@ -41,7 +41,7 @@ export const Pause = ({ children }: IPause) => {
     <>
       <Suspense fallback={<Ready setReady={setReady} />}>{children}</Suspense>
       {paused && (
-        <div className="absolute left-0 top-0 z-[10001] flex h-full w-full flex-col items-center justify-center bg-elevation2 opacity-95 transition-all">
+        <div className="absolute left-0 top-0 z-[10001] flex h-full w-full flex-col items-center justify-center bg-elevation2 opacity-95">
           <div className="flex flex-col items-center justify-center gap-5">
             <Help />
             <button
