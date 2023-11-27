@@ -1,6 +1,7 @@
-import { SidePanelControls } from "@/constants/Controls";
 import { Dispatch, FC, ReactNode, SetStateAction } from "react";
 import { BufferGeometry, Group, Vector3 } from "three";
+
+import { SidePanelControls } from "@/constants/Controls";
 
 // Base types
 type CubeGrid = boolean[][][];
