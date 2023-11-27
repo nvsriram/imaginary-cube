@@ -22,7 +22,7 @@ export default {
         toolTipText: "#181c20",
       },
       keyframes: {
-        jumpingAnimation: {
+        waitingAnimation: {
           "0%": { transform: "translate3d(0, 0, 0)" },
           "50%": { transform: "translate3d(0, 3px, 0)" },
           "100%": { transform: "translate3d(0, 0, 0)" },
