@@ -1,6 +1,7 @@
+import { lazy } from "react";
+
 import { Shape } from "@/types";
 import { convertToBetaShape } from "@/utils";
-import { lazy } from "react";
 
 const Cube = lazy(() =>
   import("@/components/shapes").then((module) => ({
