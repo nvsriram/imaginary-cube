@@ -5,3 +5,11 @@
 :root {
   background-color: #181c20;
 }
+
+:root ::selection {
+  background-color: #0066dc;
+}
+
+:root ::selection:not(a) {
+  color: #fefefe;
+}
