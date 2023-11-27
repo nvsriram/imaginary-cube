@@ -3,27 +3,27 @@ import { convertToBetaShape } from "@/utils";
 import { lazy } from "react";
 
 const Cube = lazy(() =>
-  import("@/components/shapes/Cube").then((module) => ({
+  import("@/components/shapes").then((module) => ({
     default: module.Cube,
   })),
 );
 const Cuboctahedron = lazy(() =>
-  import("@/components/shapes/Cuboctahedron").then((module) => ({
+  import("@/components/shapes").then((module) => ({
     default: module.Cuboctahedron,
   })),
 );
 const HexagonalBipyramid = lazy(() =>
-  import("@/components/shapes/HexagonalBipyramid").then((module) => ({
+  import("@/components/shapes").then((module) => ({
     default: module.HexagonalBipyramid,
   })),
 );
 const Tetrahedron = lazy(() =>
-  import("@/components/shapes/Tetrahedron").then((module) => ({
+  import("@/components/shapes").then((module) => ({
     default: module.Tetrahedron,
   })),
 );
 const Octahedron = lazy(() =>
-  import("@/components/shapes/Octahedron").then((module) => ({
+  import("@/components/shapes").then((module) => ({
     default: module.Octahedron,
   })),
 );
